@@ -77,7 +77,7 @@ export default function AppRoutes() {
                             <Route path="/" element={<Login />}></Route>
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
-                                <Route path="/userEntity" element={<GenericForm key='userEntity' object={initialUser} url={'userEntity'} />}></Route>
+                                <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
                             </Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
