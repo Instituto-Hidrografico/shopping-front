@@ -9,7 +9,7 @@ import { ContainerInput } from './generic.field'
 import { Button } from '../template/button';
 import { logout } from '../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../service/service.token'
-import logo from '../../assets/image/marinha.png'
+import logo from '../../assets/image/coffee2.png'
 import { Rotate } from '../template/rotate'
 import { Toast } from '../toast/toast'
 import { Home } from '../home'
@@ -24,7 +24,7 @@ export const Login = () => {
         retrieveItem()
     }, [])
     const retrieveItem = async () => {
-        await retrieve('userEntity', 0, 20, 'username', getPayload().sub).then((data: any) => {
+        await retrieve('user', 0, 20, 'username', getPayload().sub).then((data: any) => {
             startTransition(() => setState(data?.content[0]))
         }).catch((error) => { setError(error) })
     }

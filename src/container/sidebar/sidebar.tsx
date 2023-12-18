@@ -5,7 +5,7 @@ import { UriScreenFormat } from '../../service/uri.format'
 import { logout } from '../../service/service.crud'
 import { accessList } from '../access.list'
 import { vector } from '../menu'
-import logo from '../../assets/image/marinha.png'
+import logo from '../../assets/image/coffee2.png'
 
 export const SideContainer = () => {
   // const [ispending, startTransition] = useTransition()
