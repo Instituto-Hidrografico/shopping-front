@@ -52,6 +52,7 @@ import { initialRadar } from "./component/radar/radar.initial";
 import { initialStructure } from "./component/structure/structure.initial";
 import { initialPrivilege } from "./component/privilege/privilege.initial";
 import { WeatherForm } from "./container/form/weather.form";
+import { List } from "./container/form/list";
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -76,6 +77,7 @@ export default function AppRoutes() {
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
                             </Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.USER, ROLES.ADMIN, ROLES.MODERATOR]} />}>
+                                <Route path="/list" element={<List />}></Route>
                                 <Route path="/address" element={<GenericForm key='address' object={initialAddress} url={'address'} />}></Route>
                                 <Route path="/blind" element={<GenericForm key='blind' object={initialBlind} url={'blind'} />}></Route>
                                 <Route path="/commission" element={<GenericForm key='commission' object={initialCommission} url={'commission'} />}></Route>
