@@ -14,6 +14,7 @@ export const Container = styled('div', {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        paddingBottom: '12rem',
     },
     variants: {
         align: {
@@ -113,7 +114,7 @@ export const ContainerInput2 = styled('span', {
         color: '$fourth',
         textIndent: '0',
         background: '$tenth',
-                '+ label': {
+        '+ label': {
             width: '90%',
             margin: '0 5%',
             overflow: 'visible',
@@ -210,6 +211,41 @@ export const ContainerInput = styled('div', {
         transition: 'all 0.3s ease',
         boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     },
+    variants: {
+        historic: {
+            true: {
+                'input, select': {
+                    width: '10em',
+                    '+ label': {
+                        width: '8em',
+                    },
+                },
+            },
+            false: {
+                'input, select': {
+                    '+ label': {
+                        width: '7rem',
+                    },
+                },
+            },
+        },
+        error: {
+            true: {
+                'input, select': {
+                    color: '$tenth',
+                    background: '$fifteenth',
+                },
+                'input:focus, input:active, input:hover, select:focus, select:active, select:hover': {
+                    '+ label + label': {
+                        height: '4rem',
+                        background: '$fifteenth',
+                        display: 'inline-block',
+                        zIndex: '1',
+                    },
+                },
+            },
+        },
+    },
 })
 
 export const ContainerLabel = styled('label', {
@@ -224,20 +260,36 @@ export const ContainerLabel = styled('label', {
 })
 
 export const InputGroup = styled('span', {
-    display: 'flex',
-    alignItems: 'center',
-    'input:first-child': {
-        borderRadius: '.3rem 0 0 .3rem',
+    // '&::after': {
+    //     content: `attr(data-name)`,
+    // },
+    position: 'relative',
+    display: 'inline-block',
+    padding: '.2rem',
+    'span': {
+        opacity: '0',
+        position: 'absolute',
+        padding: '0 .05rem',
+        borderRadius: '.3rem',
+        color: '$fourth',
+        fontSize: '.75rem',
+        backgroundImage: 'linear-gradient($ninth, $sixth)',
+        transform: 'translateY(-0.25rem) translateX(-120%)',
     },
-    'input:not(:last-child)': {
+    'input:first-child': {
+        borderTopLeftRadius: '.3rem',
+        borderBottomLeftRadius: '.3rem',
+    },
+    'input:not(:last-of-type)': {
         borderRight: 'none',
     },
-    'input:last-child': {
-        borderRadius: '0 .3rem .3rem 0',
+    'input:last-of-type': {
+        borderTopRightRadius: '.3rem',
+        borderBottomRightRadius: '.3rem',
     },
     input: {
-        height: '2rem',
-        width: '4rem',
+        height: '2.2rem',
+        width: '5rem',
         padding: '0 1rem',
         color: '#354F52',
         fontSize: '15px',
@@ -255,10 +307,64 @@ export const InputGroup = styled('span', {
         transition: 'background-color .3s ease-in-out',
     },
     '.label:hover': {
+        transform: 'translateY(-1.2rem)',
         backgroundColor: '#52796F',
     },
-    'input:focus, input:focus-visible': {
-        borderColor: '#84A98C',
-        outline: 'none',
+    'input:placeholder-shown + label + span' : {
+        opacity: '0',
+    },
+    'input:not(placeholder-shown) + label + span, input:focus + label + span, input:hover + label + span': {
+        transition: 'all .4s ease-in-out',
+        color: 'gray',
+        opacity: '1',
+    },
+    '.validation': {
+        fontSize: '.8rem',
+        visibility: 'hidden',
+        backgroundColor: 'black',
+        color: '#fff',
+        textAlign: 'center',
+        borderRadius: '.3rem',
+        padding: '.25rem',
+        position: 'absolute',
+        zIndex: '1',
+        top: '150%',
+        left: '50%',
+        marginLeft: '-60px',
+        opacity: '0',
+        transition: 'opacity 1s',
+    },
+    'input:disabled': {
+        backgroundColor: '$eleventh',
+        cursor: 'not-allowed',
+    },
+    'input:disabled + label + span': {
+        backgroundImage: 'linear-gradient($ninth, $eleventh)',
+    },
+    variants: {
+        error: {
+            true: {
+                'input:not(placeholder-shown) + label + span, input:focus + label + span, input:hover + label + span': {
+                    color: '$sixth',
+                    backgroundImage: 'linear-gradient($ninth, $fifteenth)',
+                },
+                'input, select': {
+                    color: '$tenth',
+                    background: '$fifteenth',
+                },
+                'input:focus, input:active, input:hover, select:focus, select:active, select:hover': {
+                    '+ label + label': {
+                        height: '4rem',
+                        background: '$fifteenth',
+                        display: 'inline-block',
+                        zIndex: '1',
+                    },
+                },
+                'input:hover + .validation': {
+                    visibility: 'visible',
+                    opacity: '1',
+                },
+            },
+        },
     },
 })

@@ -16,10 +16,10 @@ export const SideContainer = () => {
   const changeShow = () => { setShow(!show) }
 
   const collapse: string[][] = [
-    ["weather/historic", "bootstrap", "sixth"],
-    ["weatherOffShore/historic", "table", "sixth"],
-    ["weatherOnShore/historic", "geo-fill", "sixth"],
-    ["station/historic", "cpu-fill", "sixth"]]
+    ["weather", "bootstrap", "sixth"],
+    ["weatherOffShore", "table", "sixth"],
+    ["weatherOnShore", "geo-fill", "sixth"],
+  ]
 
   // useEffect(()=> {
   //   startTransition(() => setList(accessList()))
@@ -35,7 +35,7 @@ export const SideContainer = () => {
         })}
         {/* <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>
-              <div><span>historic</span><Icon name="geo2" /></div></SideItem>
+              <div><span>Collapse</span><Icon name="geo2" /></div></SideItem>
             {collapse.map((element) => {
               return <SideItem key={element[1]} href={`#/${element[0]}`} ><Icon name={element[1]} /><p>{UriScreenFormat(element[0])}</p></SideItem>
             })}
