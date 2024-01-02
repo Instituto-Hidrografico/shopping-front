@@ -4,7 +4,8 @@ import { getAccessToken } from "../../service/service.token"
 const token = getAccessToken();
 
 export const api = axios.create({
-  baseURL: "http://localhost:3121/shopping",
+  // baseURL: "http://localhost:3121/shopping",
+  baseURL: "http://15.235.55.109:10824/shopping",
   // headers: { 'content-type': 'application/json' }
 });
 
