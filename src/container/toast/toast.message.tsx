@@ -1,4 +1,4 @@
-export interface ToastDetails {
+interface ToastDetails {
     name: string,
     icon: string,
     title: string,
@@ -32,6 +32,12 @@ export const toastDetails : ToastDetails[] = [
     }
 ]
 
+const removeToast = (toast: any) => {
+    toast.classList.add('hide') 
+    if(toast.timeoutId) clearTimeout(toast.timeoutId)
+    setTimeout(() => toast.remove(), 500)
+}
+
 export const createToast = (classe: ToastDetails) => {
     const notifications = document.querySelector(".notifications")
     const toast = document.createElement("li");
@@ -43,10 +49,4 @@ export const createToast = (classe: ToastDetails) => {
                       </div>`;
     notifications?.appendChild(toast);
     setTimeout(()=> removeToast(toast), 4000)
-}
-
-const removeToast = (toast: any) => {
-    toast.classList.add('hide') 
-    if(toast.timeoutId) clearTimeout(toast.timeoutId)
-    setTimeout(() => toast.remove(), 500)
 }
