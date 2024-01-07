@@ -1,11 +1,15 @@
 import './button.css'
 
 interface IButton {
-    name: string,
+    category?: string,
+    name?: string,
+    function?: any,
+    hidden?: boolean,
+    disabled?: boolean,
 }
 
-export const ButtonT = (button: IButton) => {
+export const Button = (button: IButton) => {
     return(
-        <button typeof={button.name}/>
+        <button typeof={button.category} onClick={() => button.function()} hidden={button.hidden} disabled={button.disabled}>{button.name}</button>
     )
 }

@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 import { Weather } from '../component/weather/weather.interface';
 import { initialWeather } from '../component/weather/weather.initial';
 import { createAll, retrieve } from '../service/service.crud';
-import { Button } from './template/button';
+import { Button } from './template/button/button';
 // import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 // import { ErrorMessage } from '../../assets/error/errorMessage';
 
@@ -61,8 +61,8 @@ export const WeatherUpload = () => {
     return (
         <div>
             <FindFile type="file" onChange={handleInputFile} ></FindFile>
-            <Button disabled={ispending ? true : false} color="success" onClick={createAllItems} >Upload</Button>
-            <Button disabled={true} hidden={ispending ? false : true}>Carregando</Button>
+            <Button disabled={ispending ? true : false} category="success" function={createAllItems} name='Upload'/>
+            <Button disabled={true} hidden={ispending ? false : true} category="success" name='Carregando'/>
             {/* <Button disabled={true} hidden={executed()? false : true}>Executado</Button> */}
         </div>
     );

@@ -6,7 +6,7 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login, retrieve } from '../../service/service.crud'
 import { Tooltip } from '../tooltip/tooltip'
 import { ContainerInput } from './generic.field'
-import { Button } from '../template/button';
+import { Button } from '../template/button/button';
 import { logout } from '../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/coffee2.png'
@@ -88,8 +88,8 @@ export const Login = () => {
                                 <label htmlFor="password">Password</label>
                             </ContainerInput>
                         </Tooltip>
-                        {!isValidToken() && <Button category={'primary'} onClick={loginUser}>Login</Button>}
-                        {isValidToken() && <Button onClick={logoutUser}>Logout</Button>}
+                        {!isValidToken() && <Button category={'primary'} function={loginUser} name='Login'/>}
+                        {isValidToken() && <Button category={'secondary'} function={logoutUser} name='Logout'/>}
                         {ispending}
                         <span>
                             {Array.isArray(error) && error.map((erro: ErrorMessage, index: number) => {

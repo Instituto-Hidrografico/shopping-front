@@ -7,7 +7,7 @@ import { Container, ContainerInput2, InputGroup } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 import { Table } from '../template/table'
-import { Button, ButtonPage, GroupButton } from '../template/button'
+import { ButtonPage, GroupButton } from '../template/button'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
@@ -26,6 +26,7 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 // import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 import { WeatherUpload } from '../weather.upload'
+import { Button } from '../template/button/button'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -283,8 +284,8 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                         <article>
                             <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
                             <footer>
-                                <Button category={'danger'} onClick={handleConfirmYes} >{UriScreenFormat(confirm.action)}</Button>
-                                <Button category={'secondary'} onClick={() => handleConfirm('')} type='reset' >Reset</Button>
+                                <Button category={'danger'} function={handleConfirmYes} name={UriScreenFormat(confirm.action)}/>
+                                <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
                             </footer>
                         </article>
                     </Modal>
@@ -749,23 +750,23 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                         {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
                                     </PDFDownloadLink>}
                                 <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
-                                <Button category={'primary'} onClick={() => handleNext()} hidden={tab === 4}>Next</Button>
-                                <Button category={'primary'} onClick={() => handleConfirm('create')} hidden={compositeOrNot() || tab !== 4}>Create</Button>
-                                <Button category={'warning'} onClick={() => handleConfirm('update')} hidden={!compositeOrNot()}>Update</Button>
-                                <Button category={'danger'} onClick={() => handleConfirm('delete')} hidden={!compositeOrNot()}>Delete</Button>
-                                <Button category={'secondary'} onClick={handleModal}>Close</Button>
+                                <Button category={'primary'} function={() => handleNext()} hidden={tab === 4} name='Next'/>
+                                <Button category={'primary'} function={() => handleConfirm('create')} hidden={compositeOrNot() || tab !== 4} name='Create'/>
+                                <Button category={'warning'} function={() => handleConfirm('update')} hidden={!compositeOrNot()} name='Update'/>
+                                <Button category={'danger'} function={() => handleConfirm('delete')} hidden={!compositeOrNot()} name='Delete'/>
+                                <Button category={'secondary'} function={handleModal} name='Close'/>
                             </footer>
                         </article>
                     </Modal>
                     <Header>
                         <span>
-                            {!object.url.includes('istoric') && <Button category={'primary'} onClick={newItem}>New</Button>}
+                            {!object.url.includes('istoric') && <Button category={'primary'} function={newItem} name='New'/>}
                             <TitleHeader>
                                 <h1>{UriScreenFormat(object.url)}</h1>
                             </TitleHeader>
                             <WeatherUpload></WeatherUpload>
                         </span>
-                        <a href={`#/${'profile'}`}><Button category={'secondary'}>{getPayload().sub}</Button></a>
+                        <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub}/></a>
                     </Header>
                     {/* {ispending && <Load></Load>} */}
                     <Table>

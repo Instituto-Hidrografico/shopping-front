@@ -6,7 +6,7 @@ import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
 import { UriScreenFormat } from '../service/uri.format'
 import { accessList } from './access.list'
-import { Button } from './template/button'
+import { Button } from './template/button/button'
 
 export const Home = () => {
     // const [ispending, startTransition] = useTransition()
@@ -19,7 +19,7 @@ export const Home = () => {
         <>
             <Header>
                 <TitleHeader><h1>Home</h1></TitleHeader>
-                <a href={`#/${'profile'}`}><Button category={'secondary'}>{getPayload().sub}</Button></a>
+                <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub}/></a>
             </Header>
             <CardContainer>
                 {vector.map((element, index) => {

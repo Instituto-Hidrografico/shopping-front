@@ -5,7 +5,7 @@ import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { changePassword, retrieve } from '../../service/service.crud'
 import { ContainerInput } from './generic.field'
-import { Button } from '../template/button';
+import { Button } from '../template/button/button';
 import { logout } from '../../service/service.crud'
 import { getPayload, getRoles } from '../../service/service.token'
 import { Header, TitleHeader } from '../template/header'
@@ -70,7 +70,7 @@ export const Profile = () => {
                 <TitleHeader><h1>Profile</h1></TitleHeader>
                 <TitleHeader><h1>{getPayload().sub}</h1></TitleHeader>
                 <p>{getRoles()}</p>
-                <Button onClick={logoutUser}>Logout</Button>
+                <Button category='primary' function={logoutUser} name='Logout'/>
             </Header>
             <Header>
                 <div style={{ display: 'flex' }}>
@@ -82,7 +82,7 @@ export const Profile = () => {
                         </span>
                     </ContainerInput>
                 </div>
-                <Button onClick={changePasswordItem}>Change</Button>
+                <Button function={changePasswordItem} name='Change'/>
             </Header >
         </>
     );

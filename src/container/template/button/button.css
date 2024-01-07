@@ -9,7 +9,7 @@ button {
     border-radius: var(--space-second);
     box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
     box-sizing: border-box;
-    color: var(--color-thirteenth);
+    color: var(--color-sixth);
     cursor: pointer;
     font-family: Montserrat,sans-serif;
     font-size: var(--space-tenth);
@@ -44,9 +44,9 @@ button:active {
     box-shadow: lightGray 0 3px 7px inset;
     transform: translateY(2px);
 }
-button::after {
+/* button::after {
     content: attr(typeof);
     top: 25%;
     padding: 20px 10px 0;
     font-size: 18px;
-}
+} */
