@@ -66,7 +66,6 @@ export default function AppRoutes() {
         <HashRouter>
             <AuthProvider>
                 <FlexCointainer element='all'>
-                    {isValidToken() && <SideContainer />}
                     <FlexCointainer element='main'>
                         <Routes>
                             <Route path="*" element={<Login />}></Route>
@@ -133,6 +132,7 @@ export default function AppRoutes() {
                             }></Route>
                         </Routes>
                     </FlexCointainer>
+                    {isValidToken() && <SideContainer />}
                 </FlexCointainer>
             </AuthProvider>
         </HashRouter>
