@@ -25,6 +25,7 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 // import { Input } from './input/Input'
 // import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
+import { ButtonT } from '../template/button/button'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -280,7 +281,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         onClickModal(evt)
                     }}>
                         <article>
-                            <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
+                            <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2><ButtonT name='warning'></ButtonT></header>
                             {atribute &&
                                 <>
                                 <center>

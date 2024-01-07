@@ -1,0 +1,13 @@
+@import '../../global.css';
+
+.page {
+    background-color: var(--color-tenth);
+    font-family: Montserrat, sans-serif;
+    height: 2.5em;
+    width: 2.5em;
+    border: solid var(--color-eighth) 1px;
+}
+.page[typeof*="selected"] {
+    color: var(--color-seventh);
+    background-color: var(--color-fifth);
+}
