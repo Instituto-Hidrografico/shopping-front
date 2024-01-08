@@ -42,7 +42,6 @@ export const SideList = () => {
   // },[])
   return (
     <Sidebar>
-      <>{JSON.stringify(states)}</>
       <SidebarHeader>
         <SideTitle sidehide={show} key={0} href={`#/`} >
           <p>Home</p><img src={logo} />
@@ -50,7 +49,7 @@ export const SideList = () => {
       </SidebarHeader>
       <SidebarHeader>
       {vector.map((element, index) => {
-          return <SideItem key={Math.random()} onMouseOver={()=>searchByCategory(UriScreenFormat(vector[index][0]))} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
+          return <SideItem key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
       })}
       </SidebarHeader>
     </Sidebar>
