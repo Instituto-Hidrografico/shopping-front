@@ -53,6 +53,7 @@ import { initialStructure } from "./component/structure/structure.initial";
 import { initialPrivilege } from "./component/privilege/privilege.initial";
 import { WeatherForm } from "./container/form/weather.form";
 import { List } from "./container/form/list";
+import { SideList } from "./container/sidebar/side.list";
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -132,7 +133,7 @@ export default function AppRoutes() {
                             }></Route>
                         </Routes>
                     </FlexCointainer>
-                    {isValidToken() && <SideContainer />}
+                    {isValidToken() && <SideList />}
                 </FlexCointainer>
             </AuthProvider>
         </HashRouter>
