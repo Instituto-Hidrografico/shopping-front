@@ -1,4 +1,4 @@
-import { useState, useEffect, useTransition, startTransition } from 'react'
+import { useState, useLayoutEffect, useTransition, startTransition } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../template/flex'
 import { Icon } from '../../assets/svg.access'
 import { UriScreenFormat } from '../../service/uri.format'
@@ -8,17 +8,13 @@ import { vector } from '../category'
 import logo from '../../assets/image/coffee2.png'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
-import { initialFood } from '../../component/food/food.initial'
-import { Food } from '../../component/food/food.interface'
 
 export const SideList = () => {
   // const [ispending, startTransition] = useTransition()
   const [collapsible, setCollapsible] = useState(false)
-  const [list, setList] = useState<boolean[]>(accessList())
   const [show, setShow] = useState(true)
-  const showCollapsible = () => { setCollapsible(!collapsible) }
-  const changeShow = () => { setShow(!show) }
-  const [states, setStates] = useState<Food[]>([initialFood])
+  const [state, setState] = useState<string>('')
+  const [states, setStates] = useState<[]>([])
   const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
 
   const searchByCategory = async (url: string) => {
