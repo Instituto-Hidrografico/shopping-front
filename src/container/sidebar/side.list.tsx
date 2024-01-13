@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect, useTransition, startTransition } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../template/flex'
 import { Icon } from '../../assets/svg.access'
-import { UriScreenFormat } from '../../service/uri.format'
+import { UriToScreenFormat } from '../../service/uri.format'
 import { logout, retrieve } from '../../service/service.crud'
 import { accessList } from '../access.list'
 import { vector } from '../category'
@@ -45,7 +45,7 @@ export const SideList = () => {
       </SidebarHeader>
       <SidebarHeader>
       {vector.map((element, index) => {
-          return <SideItem key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></SideItem>
+          return <SideItem key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></SideItem>
       })}
       </SidebarHeader>
     </Sidebar>

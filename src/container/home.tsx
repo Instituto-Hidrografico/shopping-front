@@ -4,7 +4,7 @@ import { getPayload } from '../service/service.token'
 import { Card, CardContainer } from './template/card'
 import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
-import { UriScreenFormat } from '../service/uri.format'
+import { UriToScreenFormat } from '../service/uri.format'
 import { accessList } from './access.list'
 import { Button } from './template/button/button'
 
@@ -23,7 +23,7 @@ export const Home = () => {
             </Header>
             <CardContainer>
                 {vector.map((element, index) => {
-                    return <Card key={Math.random()}><a key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriScreenFormat(vector[index][0])}</p></a></Card>
+                    return <Card key={Math.random()}><a key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a></Card>
                 })}
             </CardContainer>
         </>

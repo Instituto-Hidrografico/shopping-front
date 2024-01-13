@@ -18,7 +18,7 @@ import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './weather.upload'
 import { Header, TitleHeader } from '../template/header'
 // import { Load } from '../template/load'
-import { UriScreenFormat } from '../../service/uri.format'
+import { UriToScreenFormat } from '../../service/uri.format'
 // import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
@@ -273,9 +273,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         onConfirmModal(evt)
                     }}>
                         <article>
-                            <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriScreenFormat('Confirm')}</h2></header>
+                            <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriToScreenFormat('Confirm')}</h2></header>
                             <footer>
-                                <Button category={'danger'} function={handleConfirmYes} name={UriScreenFormat(confirm.action)}/>
+                                <Button category={'danger'} function={handleConfirmYes} name={UriToScreenFormat(confirm.action)}/>
                                 <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
                             </footer>
                         </article>
@@ -284,7 +284,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         onClickModal(evt)
                     }}>
                         <article>
-                            <header><span onClick={handleModal}>&times;</span><h2>{UriScreenFormat(object.url)}</h2></header>
+                            <header><span onClick={handleModal}>&times;</span><h2>{UriToScreenFormat(object.url)}</h2></header>
                             {atribute &&
                                 <>
                                 <center>
@@ -337,7 +337,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <span>
                             {!object.url.includes('istoric') && <Button category={'primary'} function={newItem} name={'New'}/>}
                             <TitleHeader>
-                                <h1>{UriScreenFormat(object.url)}</h1>
+                                <h1>{UriToScreenFormat(object.url)}</h1>
                             </TitleHeader>
                         </span>
                         <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub}/></a>
