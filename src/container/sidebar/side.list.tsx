@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect, useTransition, startTransition } from 'react'
 import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../template/flex'
 import { Icon } from '../../assets/svg.access'
-import { UriToScreenFormat } from '../../service/uri.format'
+import { UriToScreenFormat } from '../../assets/uri.format'
 import { logout, retrieve } from '../../service/service.crud'
 import { accessList } from '../access.list'
 import { vector } from '../category'

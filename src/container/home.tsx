@@ -4,7 +4,7 @@ import { getPayload } from '../service/service.token'
 import { Card, CardContainer } from './template/card'
 import { Header, TitleHeader } from './template/header'
 import { vector } from './menu';
-import { UriToScreenFormat } from '../service/uri.format'
+import { UriToScreenFormat } from '../assets/uri.format'
 import { accessList } from './access.list'
 import { Button } from './template/button/button'
 
