@@ -16,7 +16,6 @@ import { Toast } from '../toast/toast.style'
 import { createToast, toastDetails } from '../toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './weather.upload'
-import { Header, TitleHeader } from '../template/header'
 // import { Load } from '../template/load'
 import { UriToScreenFormat } from '../../assets/uri.format'
 // import { ShineButton } from './shine.button'
@@ -26,6 +25,7 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 // import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
+import { Header } from '../template/header/header'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -333,15 +333,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             }
                         </article>
                     </Modal>
-                    <Header>
-                        <span>
-                            {!object.url.includes('istoric') && <Button category={'primary'} function={newItem} name={'New'}/>}
-                            <TitleHeader>
-                                <h1>{UriToScreenFormat(object.url)}</h1>
-                            </TitleHeader>
-                        </span>
-                        <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub}/></a>
-                    </Header>
+                    <Header title={object.url} function={newItem} />
                     {/* {ispending && <Load></Load>} */}
                     <Table>
                         <thead>
