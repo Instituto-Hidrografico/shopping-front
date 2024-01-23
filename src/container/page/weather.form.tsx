@@ -15,7 +15,6 @@ import { Toast } from '../template/toast/toast.style'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './state.upload'
-// import { Load } from '../template/load'
 import { UriToScreenFormat } from '../../assets/uri.format'
 // import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
@@ -27,6 +26,7 @@ import { WeatherUpload } from '../weather.upload'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
 import '../template/table/table.css'
+import '../template/keyframe.css'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -759,7 +759,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                         </article>
                     </Modal>
                     <Header title={object.url} function={newItem}/>
-                    {/* {ispending && <Load></Load>} */}
+                    {/* {ispending && <div className='load'></div>} */}
                     <table>
                         <thead>
                             <tr>

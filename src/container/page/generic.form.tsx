@@ -16,7 +16,6 @@ import { Toast } from '../template/toast/toast.style'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './weather.upload'
-// import { Load } from '../template/load'
 import { UriToScreenFormat } from '../../assets/uri.format'
 // import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
@@ -26,8 +25,9 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
-import '../template/table/table.css'
 import { ButtonPage } from '../template/button/button.page'
+import '../template/table/table.css'
+import '../template/keyframe.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -336,7 +336,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         </article>
                     </Modal>
                     <Header title={object.url} function={newItem} />
-                    {/* {ispending && <Load></Load>} */}
+                    {/* {ispending && <div className='load'></div>} */}
                     <table>
                         <thead>
                             <tr>
