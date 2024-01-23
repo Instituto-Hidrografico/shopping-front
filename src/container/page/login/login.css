@@ -1,4 +1,5 @@
 @import '../../global.css';
+@import '../../template/keyframe.css';
 
 section {
     background-color: var(--color-second);
@@ -25,4 +26,7 @@ article span {
 }
 article button {
     margin: 2em;
+}
+img {
+    animation: spin 4s linear infinite;
 }

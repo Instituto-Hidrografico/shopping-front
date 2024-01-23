@@ -13,7 +13,6 @@ import logo from '../../../assets/image/coffee2.png'
 import { Rotate } from '../../template/rotate'
 import { Toast } from '../../template/toast/toast.style'
 import { Home } from '../home'
-import { CenterContainer, CenterItem } from '../../template/flex'
 import './login.css'
 
 export const Login = () => {
@@ -76,7 +75,7 @@ export const Login = () => {
                 :
                 <section>
                     <article>
-                        <Rotate src={logo} alt="" width="120" height="128"></Rotate>
+                        <img className='rotate' src={logo} alt="" width="120" height="128"></img>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
                             <ContainerInput>
                                 <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />

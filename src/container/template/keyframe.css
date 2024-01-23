@@ -1,0 +1,3 @@
+@keyframes spin {
+    50% { transform: rotatey(360deg); }
+}
