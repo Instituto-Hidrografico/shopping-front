@@ -3,51 +3,6 @@ import logo from '../../assets/image/marinha.png'
 
 const { styled } = stitches
 
-export const FlexCointainer = styled('div', {
-    height: '100vh',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'start',
-    overflow: 'hidden',
-    // backgroundImage: `url("https://cdn-defesaaereanaval.nuneshost.com/wp-content/uploads/2021/05/Marinha-do-brasil-Logo.jpg")`,
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed',
-    backgroundSize: 'cover',
-    backgroundBlendMode: 'soft-light',
-    variants: {
-        element: {
-            all: {
-                alignItems: 'stretch',
-                backgroundColor: '$ninth',
-            },
-            main: {
-                flexBasis: '0',
-                flexGrow: '1.5',
-                flexDirection: "column",
-                color: '$fifth',
-                backgroundColor: '$ninth'
-            },
-            content: {
-                height: '94vh',
-                flexDirection: "row",
-
-                color: '$fourth',
-                backgroundColor: '$fifth'
-            },
-            nav: {
-                height: '6vh',
-                backgroundPosition: '50%',
-                padding: '.5rem',
-                flexDirection: "row",
-                justifyContent: 'space-between',
-
-                color: '$third',
-                backgroundColor: '$ninth'
-            },
-        },
-    },
-})
 export const SideTitle = styled('a', {
     textDecoration: 'none',
     color: '$ninth',

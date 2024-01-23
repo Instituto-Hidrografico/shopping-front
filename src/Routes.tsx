@@ -5,7 +5,7 @@ import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
 import { SideContainer } from "./container/template/sidebar/sidebar";
-import { FlexCointainer, SideItem } from "./container/template/flex";
+import { SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/page/generic.form";
 import { initialUser } from "./component/user/user.initial";
@@ -54,6 +54,7 @@ import { initialPrivilege } from "./component/privilege/privilege.initial";
 import { WeatherForm } from "./container/page/weather.form";
 import { List } from "./container/page/list";
 import { SideList } from "./container/template/sidebar/side.list";
+import './routes.css'
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -66,8 +67,8 @@ export default function AppRoutes() {
     return (
         <HashRouter>
             <AuthProvider>
-                <FlexCointainer element='all'>
-                    <FlexCointainer element='main'>
+                <div className='routes all'>
+                    <div className='routes main'>
                         <Routes>
                             <Route path="*" element={<Login />}></Route>
                             <Route path="/" element={<Login />}></Route>
@@ -132,9 +133,9 @@ export default function AppRoutes() {
                                     </div>
                             }></Route>
                         </Routes>
-                    </FlexCointainer>
+                    </div>
                     {isValidToken() && <SideList />}
-                </FlexCointainer>
+                </div>
             </AuthProvider>
         </HashRouter>
     )
