@@ -1,10 +1,10 @@
-div {
+.card {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-span {
+.card span {
     display: flex;
     height: 10rem;
     min-width: 15rem;
@@ -20,7 +20,7 @@ span {
     align-items: center;
 }
 
-span a {
+.card span a {
     height: 100%;
     width: 100%;
     display: flex;

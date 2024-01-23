@@ -1,6 +1,6 @@
 @import '../../global.css';
 
-header {
+.header {
     display: flex;
     height: var(--space-thirteenth);
     margin: var(--space-first);
@@ -13,7 +13,7 @@ header {
     align-items: center;
 }
 
-header h1 {
+.header h1 {
     padding: var(--space-sm);
     padding-left: var(--space-md);
 }
