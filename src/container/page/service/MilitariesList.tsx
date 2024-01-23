@@ -1,10 +1,10 @@
 import { useState, ChangeEvent } from 'react'
 import list from './militaries.json'
-import { Military } from '../../component/military/military.interface'
+import { Military } from '../../../component/military/military.interface'
 import { Supervisor } from './supervisor'
-import { initialMilitary } from '../../component/military/military.initial'
-import { Service } from '../../component/service/service.interface'
-import { initialService } from '../../component/service/service.initial'
+import { initialMilitary } from '../../../component/military/military.initial'
+import { Service } from '../../../component/service/service.interface'
+import { initialService } from '../../../component/service/service.initial'
 
 export const MilitariesList = () => {
     const [military, setMilitary] = useState<Military>(initialMilitary)
