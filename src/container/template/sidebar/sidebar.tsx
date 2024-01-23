@@ -1,10 +1,10 @@
 import { useState, useEffect, useTransition } from 'react'
-import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../template/flex'
-import { Icon } from '../../assets/svg.access'
-import { UriToScreenFormat } from '../../assets/uri.format'
-import { logout } from '../../service/service.crud'
-import { accessList } from '../access.list'
-import { vector } from '../menu'
+import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../flex'
+import { Icon } from '../../../assets/svg.access'
+import { UriToScreenFormat } from '../../../assets/uri.format'
+import { logout } from '../../../service/service.crud'
+import { accessList } from '../../access.list'
+import { vector } from '../../menu'
 import logo from '../../assets/image/coffee2.png'
 
 export const SideContainer = () => {

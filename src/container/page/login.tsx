@@ -4,7 +4,7 @@ import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { login, retrieve } from '../../service/service.crud'
-import { Tooltip } from '../tooltip/tooltip'
+import { Tooltip } from '../template/tooltip/tooltip'
 import { ContainerInput } from './generic.field'
 import { Button } from '../template/button/button';
 import { logout } from '../../service/service.crud'
@@ -12,7 +12,7 @@ import { existsToken, getPayload, isValidToken } from '../../service/service.tok
 import logo from '../../assets/image/coffee2.png'
 import { Rotate } from '../template/rotate'
 import { Toast } from '../template/toast/toast.style'
-import { Home } from '../home'
+import { Home } from './home'
 import { CenterContainer, CenterItem } from '../template/flex'
 
 export const Login = () => {
