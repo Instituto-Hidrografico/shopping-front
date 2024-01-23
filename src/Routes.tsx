@@ -12,7 +12,7 @@ import { NotAllowed } from "./container/page/not.allowed";
 import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
-import { Login } from "./container/page/login";
+import { Login } from "./container/page/login/login";
 import { Home } from "./container/page/home";
 import { Profile } from "./container/page/profile";
 import { MilitariesList } from "./container/page/service/MilitariesList";
