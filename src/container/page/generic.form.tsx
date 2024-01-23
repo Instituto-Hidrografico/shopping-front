@@ -7,7 +7,7 @@ import { Container, ContainerInput2 } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 
-import { ButtonPage, GroupButton } from '../template/button'
+// import { GroupButton } from '../template/button'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
@@ -27,6 +27,7 @@ import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
 import '../template/table/table.css'
+import { ButtonPage } from '../template/button/button.page'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -379,15 +380,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <tfoot>
                             <tr>
                                 <th>
-                                    <GroupButton>
-                                        <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
-                                        <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-                                    </GroupButton>
+                                    <ButtonPage name={'<<'} function={() => handlePage(0)}/>
+                                    <ButtonPage name={'<'} function={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}/>
+                                    <ButtonPage name={page} function={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}/>
+                                    <ButtonPage name={page + 1} disabled/>
+                                    <ButtonPage name={page + 2} function={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}/>
+                                    <ButtonPage name={'>'} function={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}/>
+                                    <ButtonPage name={'>>'} function={() => handlePage(pageable.totalPages - 1)}/>
                                 </th>
                             </tr>
                             <tr><th>Total amount {pageable.totalElements}</th></tr>

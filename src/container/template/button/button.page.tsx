@@ -1,11 +1,14 @@
-import './button.css'
+import './button.page.css'
 
 interface IButtonPage {
-    name: string,
+    name: string|number,
+    function?: any,
+    hidden?: boolean,
+    disabled?: boolean,
 }
 
-export const ButtonPageT = (button: IButtonPage) => {
+export const ButtonPage = (button: IButtonPage) => {
     return(
-        <button typeof={button.name} className='page'/>
+        <button className='page' hidden={button.hidden} disabled={button.disabled} onClick={() => button.function()} >{button.name}</button>
     )
 }

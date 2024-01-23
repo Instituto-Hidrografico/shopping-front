@@ -17,7 +17,7 @@ import { initialPreparation } from "./component/preparation/preparation.initial"
 import { Login } from "./container/page/login";
 import { Home } from "./container/page/home";
 import { Profile } from "./container/page/profile";
-import { MilitariesList } from "./container/service/MilitariesList";
+import { MilitariesList } from "./container/page/service/MilitariesList";
 import { initialCompositeUnit } from "./component/composite_unit/composite.unit.initial";
 import { initialCommission } from "./component/commission/commission.initial";
 import { initialCountry } from "./component/country/country.initial";
