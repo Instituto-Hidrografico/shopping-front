@@ -1,5 +1,4 @@
 import { useState, useLayoutEffect, useTransition, startTransition } from 'react'
-import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../flex'
 import { Icon } from '../../../assets/svg.access'
 import { UriToScreenFormat } from '../../../assets/uri.format'
 import { logout, retrieve } from '../../../service/service.crud'
@@ -8,6 +7,7 @@ import { vector } from '../../category'
 import logo from '../../../assets/image/coffee2.png'
 import { ErrorMessage } from '../../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../../assets/error/errorMessage.initial'
+import './sidebar.css'
 
 export const SideList = () => {
   // const [ispending, startTransition] = useTransition()
@@ -18,7 +18,6 @@ export const SideList = () => {
   const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
 
   const searchByCategory = async (url: string) => {
-    // console.log('s')
     await retrieve(url).then((data: any) => {
       // setStates(data.content)
       startTransition(() => setStates(data.content))
@@ -33,21 +32,16 @@ export const SideList = () => {
     ["weatherOnShore", "geo-fill", "sixth"],
   ]
 
-  // useEffect(()=> {
-  //   startTransition(() => setList(accessList()))
-  // },[])
   return (
-    <Sidebar>
-      <SidebarHeader>
-        <SideTitle sidehide={show} key={0} href={`#/`} >
-          <p>Home</p><img src={logo} />
-        </SideTitle>
-      </SidebarHeader>
-      <SidebarHeader>
+    <aside>
+      <nav>
+        <a key={0} href={`#/`} ><Icon name={'home'} /><p>{UriToScreenFormat('home')}</p></a>
+      </nav>
+      <nav>
       {vector.map((element, index) => {
-          return <SideItem key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></SideItem>
+          return <a key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a>
       })}
-      </SidebarHeader>
-    </Sidebar>
+      </nav>
+    </aside>
   )
 }

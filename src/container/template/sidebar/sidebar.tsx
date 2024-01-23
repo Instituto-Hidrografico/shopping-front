@@ -1,11 +1,11 @@
 import { useState, useEffect, useTransition } from 'react'
-import { SideTitle, SideItem, Sidebar, SidebarHeader, SidebarCollapsible } from '../flex'
 import { Icon } from '../../../assets/svg.access'
 import { UriToScreenFormat } from '../../../assets/uri.format'
 import { logout } from '../../../service/service.crud'
 import { accessList } from '../../access.list'
 import { vector } from '../../menu'
 import logo from '../../assets/image/coffee2.png'
+import './sidebar.css'
 
 export const SideContainer = () => {
   // const [ispending, startTransition] = useTransition()
@@ -25,13 +25,11 @@ export const SideContainer = () => {
   //   startTransition(() => setList(accessList()))
   // },[])
   return (
-    <Sidebar>
-      <SidebarHeader>
-        <SideTitle sidehide={show} key={0} href={`#/`} >
-          <p>Home</p><img src={logo} />
-        </SideTitle>
+    <aside>
+      <nav>
+        <a key={0} href={`#/`} ><Icon name={'home'} /><p>{UriToScreenFormat('home')}</p></a>
         {vector.map((element, index) => {
-          return <SideItem key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></SideItem>
+          return <a key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a>
         })}
         {/* <SidebarCollapsible collapsible={collapsible}>
             <SideItem key={0} onClick={showCollapsible}>
@@ -40,8 +38,8 @@ export const SideContainer = () => {
               return <SideItem key={element[1]} href={`#/${element[0]}`} ><Icon name={element[1]} /><p>{UriScreenFormat(element[0])}</p></SideItem>
             })}
         </SidebarCollapsible> */}
-      </SidebarHeader>
-      <SideItem key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Icon name={'geo-fill'} /><p>logout</p></SideItem>
-    </Sidebar>
+      </nav>
+      {/* <a key={'logout'} href={`#/${'login'}`} element={'final'} onClick={logout}><Icon name={'geo-fill'} /><p>logout</p></a> */}
+    </aside>
   )
 }

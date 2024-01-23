@@ -4,8 +4,6 @@ import { PDFDocument } from "./component/pdf/PDFDocument";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
-import { SideContainer } from "./container/template/sidebar/sidebar";
-import { SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
 import { GenericForm } from "./container/page/generic.form";
 import { initialUser } from "./component/user/user.initial";
