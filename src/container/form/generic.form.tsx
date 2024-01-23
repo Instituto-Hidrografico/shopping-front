@@ -6,7 +6,7 @@ import { create, update, remove, retrieve, removeComposite } from '../../service
 import { Container, ContainerInput2 } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
-import { Table } from '../template/table'
+
 import { ButtonPage, GroupButton } from '../template/button'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
@@ -26,6 +26,7 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
+import '../template/table/table.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -335,11 +336,11 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     </Modal>
                     <Header title={object.url} function={newItem} />
                     {/* {ispending && <Load></Load>} */}
-                    <Table>
+                    <table>
                         <thead>
                             <tr>
                                 <th colSpan={9}>
-                                    <div className='header'>
+                                    <header>
                                         <div>
                                             <span>show</span>
                                             <select onChange={handleSize} >
@@ -352,7 +353,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             <span>search {key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
                                         </div>
-                                    </div>
+                                    </header>
                                 </th>
                             </tr>
                             <tr>
@@ -391,7 +392,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             </tr>
                             <tr><th>Total amount {pageable.totalElements}</th></tr>
                         </tfoot>
-                    </Table>
+                    </table>
                     <Toast className="notifications"></Toast>
                 </>
             }
