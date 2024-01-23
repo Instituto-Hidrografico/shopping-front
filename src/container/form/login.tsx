@@ -11,7 +11,7 @@ import { logout } from '../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../service/service.token'
 import logo from '../../assets/image/coffee2.png'
 import { Rotate } from '../template/rotate'
-import { Toast } from '../toast/toast.style'
+import { Toast } from '../template/toast/toast.style'
 import { Home } from '../home'
 import { CenterContainer, CenterItem } from '../template/flex'
 
