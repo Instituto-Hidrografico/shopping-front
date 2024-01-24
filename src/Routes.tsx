@@ -4,20 +4,18 @@ import { PDFDocument } from "./component/pdf/PDFDocument";
 import { RequireAuth } from "./RequireAuth";
 import { isValidToken } from "./service/service.token"
 
-import { SideContainer } from "./container/sidebar/sidebar";
-import { FlexCointainer, SideItem } from "./container/template/flex";
 import { initialFood } from "./component/food/food.initial";
-import { GenericForm } from "./container/form/generic.form";
+import { GenericForm } from "./container/page/generic.form";
 import { initialUser } from "./component/user/user.initial";
 import { initialRole } from "./component/role/role.initial";
-import { NotAllowed } from "./container/not.allowed";
+import { NotAllowed } from "./container/page/not.allowed";
 import { AuthProvider } from "./component/auth/auth.provider";
 import { initialFoodCategory } from "./component/foodCategory/food.category.initial";
 import { initialPreparation } from "./component/preparation/preparation.initial";
-import { Login } from "./container/form/login";
-import { Home } from "./container/home";
-import { Profile } from "./container/profile";
-import { MilitariesList } from "./container/service/MilitariesList";
+import { Login } from "./container/page/login/login";
+import { Home } from "./container/page/home";
+import { Profile } from "./container/page/profile";
+import { MilitariesList } from "./container/page/service/MilitariesList";
 import { initialCompositeUnit } from "./component/composite_unit/composite.unit.initial";
 import { initialCommission } from "./component/commission/commission.initial";
 import { initialCountry } from "./component/country/country.initial";
@@ -51,9 +49,10 @@ import { initialQuality } from "./component/quality/quality.initial";
 import { initialRadar } from "./component/radar/radar.initial";
 import { initialStructure } from "./component/structure/structure.initial";
 import { initialPrivilege } from "./component/privilege/privilege.initial";
-import { WeatherForm } from "./container/form/weather.form";
-import { List } from "./container/form/list";
-import { SideList } from "./container/sidebar/side.list";
+import { WeatherForm } from "./container/page/weather.form";
+import { List } from "./container/page/list";
+import { SideList } from "./container/template/sidebar/side.list";
+import './routes.css'
 
 export const ROLES = {
     'USER': "ROLE_USER",
@@ -66,8 +65,8 @@ export default function AppRoutes() {
     return (
         <HashRouter>
             <AuthProvider>
-                <FlexCointainer element='all'>
-                    <FlexCointainer element='main'>
+                <div className='routes all'>
+                    <div className='routes main'>
                         <Routes>
                             <Route path="*" element={<Login />}></Route>
                             <Route path="/" element={<Login />}></Route>
@@ -132,9 +131,9 @@ export default function AppRoutes() {
                                     </div>
                             }></Route>
                         </Routes>
-                    </FlexCointainer>
+                    </div>
                     {isValidToken() && <SideList />}
-                </FlexCointainer>
+                </div>
             </AuthProvider>
         </HashRouter>
     )

@@ -1,19 +1,18 @@
 import { useState, ChangeEvent, useTransition, useEffect } from 'react'
-import { User } from "../../component/user/user.interface"
-import { initialUser } from '../../component/user/user.initial'
-import { ErrorMessage } from '../../assets/error/errorMessage'
-import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
-import { login, retrieve } from '../../service/service.crud'
-import { Tooltip } from '../tooltip/tooltip'
-import { ContainerInput } from './generic.field'
-import { Button } from '../template/button/button';
-import { logout } from '../../service/service.crud'
-import { existsToken, getPayload, isValidToken } from '../../service/service.token'
-import logo from '../../assets/image/coffee2.png'
-import { Rotate } from '../template/rotate'
-import { Toast } from '../toast/toast.style'
+import { User } from "../../../component/user/user.interface"
+import { initialUser } from '../../../component/user/user.initial'
+import { ErrorMessage } from '../../../assets/error/errorMessage'
+import { initialErrorMessage } from '../../../assets/error/errorMessage.initial'
+import { login, retrieve } from '../../../service/service.crud'
+import { Tooltip } from '../../template/tooltip/tooltip'
+import { ContainerInput } from '../generic.field'
+import { Button } from '../../template/button/button';
+import { logout } from '../../../service/service.crud'
+import { existsToken, getPayload, isValidToken } from '../../../service/service.token'
+import logo from '../../../assets/image/coffee2.png'
+import { Toast } from '../../template/toast/toast.style'
 import { Home } from '../home'
-import { CenterContainer, CenterItem } from '../template/flex'
+import './login.css'
 
 export const Login = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -73,9 +72,9 @@ export const Login = () => {
             {isValidToken() ?
                 <Home></Home>
                 :
-                <CenterContainer>
-                    <CenterItem>
-                        <Rotate src={logo} alt="" width="120" height="128"></Rotate>
+                <section>
+                    <article>
+                        <img className='rotate' src={logo} alt="" width="120" height="128"></img>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
                             <ContainerInput>
                                 <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
@@ -96,9 +95,9 @@ export const Login = () => {
                                 return <p key={Math.random()}>{erro.message === "Unauthorized" && "Não Autorizado"}</p>
                             })}
                         </span>
-                    </CenterItem>
+                    </article>
                     <Toast className="notifications"></Toast>
-                </CenterContainer>
+                </section>
             }
         </>
     );

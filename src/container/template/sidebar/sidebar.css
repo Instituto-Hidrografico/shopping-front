@@ -1,0 +1,57 @@
+@import '../../global.css';
+
+aside {
+    width: 2.9rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: var(--space-xxs);
+    margin: var(--space-first);
+    border-radius: .3rem;
+    background-color: var(--color-third);
+    background-image: linear-gradient(to bottom, var(--color-fourth), var(--color-third));
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .1rem #AAA inset;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width .2s;
+}
+aside:hover {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 256px;
+}
+aside a p, aside a span {
+    display: none;
+}
+aside:hover a p, aside:hover a span {
+    display: flex;
+}
+a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-ninth);
+    height: 2.2rem;
+    user-select: none;
+    border-radius: .3rem;
+    padding: var(--space-fifth);
+    margin: var(--space-zero);
+    text-transform: capitalize;
+    transition: .3s;
+}
+a img {
+    height: 1.3rem;
+}
+a:hover {
+    color: var(--color-second);
+    background-color: var(--color-ninth);
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset;
+}
+a:focus {
+    color: var(--color-first);
+    background-color: var(--color-tenth);
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset,
+}

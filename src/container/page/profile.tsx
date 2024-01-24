@@ -1,15 +1,15 @@
 import { useState, ChangeEvent, useTransition, useEffect } from 'react'
-import { User } from "../component/user/user.interface"
-import { initialUser } from '../component/user/user.initial'
-import { ErrorMessage } from '../assets/error/errorMessage'
-import { initialErrorMessage } from '../assets/error/errorMessage.initial'
-import { changePassword, retrieve } from '../service/service.crud'
-import { ContainerInput2 } from '../container/form/generic.field'
-import { Button } from './template/button/button'
-import { logout } from '../service/service.crud'
-import { getPayload, getRoles } from '../service/service.token'
-import { Header, TitleHeader } from './template/header'
+import { User } from "../../component/user/user.interface"
+import { initialUser } from '../../component/user/user.initial'
+import { ErrorMessage } from '../../assets/error/errorMessage'
+import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
+import { changePassword, retrieve } from '../../service/service.crud'
+import { ContainerInput2 } from './generic.field'
+import { Button } from '../template/button/button'
+import { logout } from '../../service/service.crud'
+import { getPayload, getRoles } from '../../service/service.token'
 import { useNavigate } from 'react-router-dom'
+import { Header } from '../template/header/header'
 
 export const Profile = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -18,7 +18,7 @@ export const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        { ispending }
+        {ispending}
         retrieveItem()
     }, [])
     const retrieveItem = async () => {
@@ -67,14 +67,8 @@ export const Profile = () => {
     }
     return (
         <>
-            <Header>
-                <TitleHeader>Profile
-                    <h1>{getPayload().sub}</h1>
-                </TitleHeader>
-                <p>{getRoles()}</p>
-                <Button category='primary' function={logoutUser} name='Logout'/>
-            </Header>
-            <Header>
+            <Header title='profile' function={logoutUser}/>
+            <div>
                 <div>
                     <ContainerInput2 error={validation("password").length !== 0 ? true : false} >
                         <span>
@@ -85,7 +79,7 @@ export const Profile = () => {
                     </ContainerInput2>
                 </div>
                 <Button category='primary' function={changePasswordItem} name='Change'/>
-            </Header >
+            </div>
             <div>{/\d/.test(state.password) ? 'OK, contém números' : 'não contém números'}</div>
             <div>{/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(state.password) ? 'OK, contém caracteres especiais' : 'não contém caracteres especiais'}</div>
             <div>{/[a-z]/.test(state.password) ? 'OK, contém letras minúsculas' : 'não contém letras minúsculas'}</div>

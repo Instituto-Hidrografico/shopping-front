@@ -6,19 +6,17 @@ import { create, update, remove, retrieve, removeComposite } from '../../service
 import { Container, ContainerInput2 } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
-import { Table } from '../template/table'
-import { ButtonPage, GroupButton } from '../template/button'
+
+// import { GroupButton } from '../template/button'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
 import { Modal } from '../template/modal'
-import { Toast } from '../toast/toast.style'
-import { createToast, toastDetails } from '../toast/toast.message'
+import { Toast } from '../template/toast/toast.style'
+import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './weather.upload'
-import { Header, TitleHeader } from '../template/header'
-// import { Load } from '../template/load'
-import { UriToScreenFormat } from '../../service/uri.format'
+import { UriToScreenFormat } from '../../assets/uri.format'
 // import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
@@ -26,6 +24,10 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 // import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
+import { Header } from '../template/header/header'
+import { ButtonPage } from '../template/button/button.page'
+import '../template/table/table.css'
+import '../template/keyframe.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -333,21 +335,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             }
                         </article>
                     </Modal>
-                    <Header>
-                        <span>
-                            {!object.url.includes('istoric') && <Button category={'primary'} function={newItem} name={'New'}/>}
-                            <TitleHeader>
-                                <h1>{UriToScreenFormat(object.url)}</h1>
-                            </TitleHeader>
-                        </span>
-                        <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub}/></a>
-                    </Header>
-                    {/* {ispending && <Load></Load>} */}
-                    <Table>
+                    <Header title={object.url} function={newItem} />
+                    {/* {ispending && <div className='load'></div>} */}
+                    <table>
                         <thead>
                             <tr>
                                 <th colSpan={9}>
-                                    <div className='header'>
+                                    <header>
                                         <div>
                                             <span>show</span>
                                             <select onChange={handleSize} >
@@ -360,7 +354,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             <span>search {key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
                                         </div>
-                                    </div>
+                                    </header>
                                 </th>
                             </tr>
                             <tr>
@@ -386,20 +380,18 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         <tfoot>
                             <tr>
                                 <th>
-                                    <GroupButton>
-                                        <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
-                                        <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
-                                        <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
-                                    </GroupButton>
+                                    <ButtonPage name={'<<'} function={() => handlePage(0)}/>
+                                    <ButtonPage name={'<'} function={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}/>
+                                    <ButtonPage name={page} function={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}/>
+                                    <ButtonPage name={page + 1} disabled/>
+                                    <ButtonPage name={page + 2} function={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}/>
+                                    <ButtonPage name={'>'} function={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}/>
+                                    <ButtonPage name={'>>'} function={() => handlePage(pageable.totalPages - 1)}/>
                                 </th>
                             </tr>
                             <tr><th>Total amount {pageable.totalElements}</th></tr>
                         </tfoot>
-                    </Table>
+                    </table>
                     <Toast className="notifications"></Toast>
                 </>
             }

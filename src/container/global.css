@@ -29,17 +29,19 @@
     --color-five: #C12525;
     --color-six: #FFFFFF;
 
-    --space-zero: 0.1rem;
+    --space-zero: 0.03rem;
     --space-first: 0.25rem;
     --space-second: 0.3rem;
     --space-third: 0.45rem;
     --space-fourth: 0.5rem;
     --space-fifth: 0.7rem;
+    --space-sm: 0.75rem;
     --space-sixth: 0.45rem;
     --space-seventh: 0.8rem;
     --space-eighth: 0.9rem;
     --space-ninth: 0.95rem;
     --space-tenth: 1rem;
+    --space-md: 1.33rem;
     --space-eleventh: 2.2rem;
     --space-twelfth: 4rem;
     --space-thirteenth: 5rem;
@@ -51,6 +53,7 @@
     --space-nineteenth: 15rem;
     --space-twentieth: 18rem;
     --space-twentyFirst: 22rem;
+    --space-75: 75%;
 
     --color-one: 20rem;
     --color-two: 22rem;

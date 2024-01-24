@@ -1,27 +1,14 @@
 import menuIcon from "./menuIcon.svg";
 import PropTypes from 'prop-types';
-import { stitches } from '../container/global.styles'
-
-const { styled } = stitches;
-
-const Svg = styled('svg', {
-    verticalAlign: '-.125em',
-    pointerEvents: 'none',
-    fill: 'currentColor',
-    marginRight: '.5rem !important',
-    listStyle: 'none',
-    width: '16px',
-    height: '16px',
-});
-
+import './svg.acess.css'
 interface Icon {
     name: string,
 }
 
 export const Icon = (icon: Icon) => (
-    <Svg className={`icon ${icon.name}`}>
+    <svg className={'svg'}>
         <use xlinkHref={`${menuIcon}#${icon.name}`} />
-    </Svg>
+    </svg>
 );
 
 Icon.propTypes = {
