@@ -4,7 +4,6 @@ import { initialUser } from '../../../component/user/user.initial'
 import { ErrorMessage } from '../../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../../assets/error/errorMessage.initial'
 import { login, retrieve } from '../../../service/service.crud'
-import { Tooltip } from '../../template/tooltip/tooltip'
 import { Button } from '../../template/button/button';
 import { logout } from '../../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../../service/service.token'
@@ -13,6 +12,7 @@ import { Toast } from '../../template/toast/toast.style'
 import { Home } from '../home'
 import './login.css'
 import '../../template/input/input.css'
+import '../../template/tooltip/tooltip.css'
 
 export const Login = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -75,18 +75,14 @@ export const Login = () => {
                 <section>
                     <article>
                         <img className='rotate' src={logo} alt="" width="120" height="128"></img>
-                        <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
-                            <div className='container'>
-                                <input type={'text'}  data-tip={validation('username').length} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
-                                <label htmlFor="username">Username</label>
-                            </div>
-                        </Tooltip>
-                        <Tooltip data-tip={validation('password')} hidden={validation('password').length === 0} >
-                            <div className='container'>
-                                <input type={'password'} data-tip={validation('password').length} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
-                                <label htmlFor="password">Password</label>
-                            </div>
-                        </Tooltip>
+                        <div className='container tooltip' data-tip={validation('username')}>
+                            <input type={'text'} data-tip={validation('username').length} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                            <label htmlFor="username">Username</label>
+                        </div>
+                        <div className='container tooltip' data-tip={validation('password')}>
+                            <input type={'password'} data-tip={validation('password').length} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                            <label htmlFor="password">Password</label>
+                        </div>
                         {!isValidToken() && <Button category={'primary'} function={loginUser} name='Login'/>}
                         {isValidToken() && <Button category={'secondary'} function={logoutUser} name='Logout'/>}
                         {ispending}
