@@ -8,11 +8,11 @@ import { Button } from '../../template/button/button';
 import { logout } from '../../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../../service/service.token'
 import logo from '../../../assets/image/coffee2.png'
-import { Toast } from '../../template/toast/toast.style'
 import { Home } from '../home'
 import './login.css'
 import '../../template/input/input.css'
 import '../../template/tooltip/tooltip.css'
+import '../../template/toast/toast.css'
 
 export const Login = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -92,7 +92,7 @@ export const Login = () => {
                             })}
                         </span>
                     </article>
-                    <Toast className="notifications"></Toast>
+                    <ul className="toast notifications"></ul>
                 </section>
             }
         </>

@@ -11,7 +11,6 @@ import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
 import { Modal } from '../template/modal'
-import { Toast } from '../template/toast/toast.style'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './state.upload'
@@ -22,11 +21,12 @@ import { PDFDocument } from '../../component/pdf/PDFDocument'
 // import { Input } from './input/Input'
 // import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
-import { WeatherUpload } from '../weather.upload'
+import { WeatherUpload } from '../page/weather.upload'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
 import '../template/table/table.css'
-import '../template/keyframe.css'
+import '../template/load/load.css'
+import '../template/toast/toast.css'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -813,7 +813,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             <tr><th>Total amount {pageable.totalElements}</th></tr>
                         </tfoot>
                     </table>
-                    <Toast className="notifications"></Toast>
+                    <ul className="toast notifications"></ul>
                 </>
             }
         </>
