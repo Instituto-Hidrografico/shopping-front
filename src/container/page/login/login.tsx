@@ -5,7 +5,6 @@ import { ErrorMessage } from '../../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../../assets/error/errorMessage.initial'
 import { login, retrieve } from '../../../service/service.crud'
 import { Tooltip } from '../../template/tooltip/tooltip'
-import { ContainerInput } from '../generic.field'
 import { Button } from '../../template/button/button';
 import { logout } from '../../../service/service.crud'
 import { existsToken, getPayload, isValidToken } from '../../../service/service.token'
@@ -13,6 +12,7 @@ import logo from '../../../assets/image/coffee2.png'
 import { Toast } from '../../template/toast/toast.style'
 import { Home } from '../home'
 import './login.css'
+import '../../template/input/input.css'
 
 export const Login = () => {
     const [state, setState] = useState<User>(initialUser)
@@ -76,16 +76,16 @@ export const Login = () => {
                     <article>
                         <img className='rotate' src={logo} alt="" width="120" height="128"></img>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
-                            <ContainerInput>
+                            <div className='.container'>
                                 <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                                 <label htmlFor="username">Username</label>
-                            </ContainerInput>
+                            </div>
                         </Tooltip>
                         <Tooltip data-tip={validation('password')} hidden={validation('password').length === 0} >
-                            <ContainerInput>
+                            <div className='.container'>
                                 <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                                 <label htmlFor="password">Password</label>
-                            </ContainerInput>
+                            </div>
                         </Tooltip>
                         {!isValidToken() && <Button category={'primary'} function={loginUser} name='Login'/>}
                         {isValidToken() && <Button category={'secondary'} function={logoutUser} name='Logout'/>}
