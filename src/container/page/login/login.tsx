@@ -76,14 +76,14 @@ export const Login = () => {
                     <article>
                         <img className='rotate' src={logo} alt="" width="120" height="128"></img>
                         <Tooltip data-tip={validation('username')} hidden={validation('username').length === 0} >
-                            <div className='.container'>
-                                <input type={'text'} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
+                            <div className='container'>
+                                <input type={'text'}  data-tip={validation('username').length} required autoFocus name={'username'} value={state.username} onChange={handleInputChange} autoComplete='off' />
                                 <label htmlFor="username">Username</label>
                             </div>
                         </Tooltip>
                         <Tooltip data-tip={validation('password')} hidden={validation('password').length === 0} >
-                            <div className='.container'>
-                                <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                            <div className='container'>
+                                <input type={'password'} data-tip={validation('password').length} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
                                 <label htmlFor="password">Password</label>
                             </div>
                         </Tooltip>
