@@ -1,0 +1,123 @@
+@import './../../global.css';
+
+div {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        center {
+            height: 22rem;
+        }
+        min-height: 28rem;
+        max-height: 90vh;
+        min-width: 32rem;
+        max-width: 95%;
+        background-color: var(--color-ninth);
+        margin: auto;
+        border: 1px solid var(--color-twelfth);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        /* border-radius: .5rem .5rem .3rem .3rem; */
+        .show {
+            background-color: var(--color-ninth);
+            border: none;
+            padding: 1rem;
+            margin: 0rem .5rem;
+            font-size: 1rem;
+            color: var(--color-first);
+            box-sizing: border-box;
+            z-index: 1;
+            width: 20vh;
+            transition: margin .25s ease-in-out;
+        }
+        .inative {
+            border: none;
+            margin: 0rem .1rem;
+            width: 20vh;
+            fill-opacity: 50%;
+        }
+        .tab {
+            display: flex;
+            justify-content: center;
+            padding-top: 0.1vh;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: var(--color-eleventh);
+            padding: 1rem 1rem 0 1rem;
+            button {
+                border-radius: 1rem 1rem 0rem 0rem;
+            }
+        }
+        .hide {
+            display: none;
+        }
+    }
+    span {
+        color: var(--color-eleventh);
+        float: right;
+        /* font-size: $lg; */
+        font-weight: bold;
+        /* span:hover, span:focus: {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        } */
+    }
+    header {
+        color: var(--color-sixth);
+        width: 100%;
+        padding: 2px 16px;
+        margin: 0 auto;
+        background-color: var(--color-third);
+        border-radius: .3rem .3rem 0 0;
+    }
+    footer {
+        display: flex;
+        height: 5rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 0 0 .5rem .5rem;
+    }
+    variants {
+        show {
+            false {
+                display: none;
+            }
+            true {
+                display: flex;
+            }
+        }
+        confirm {
+            true {
+                article {
+                    min-height: 10rem;
+                }
+            }
+        }
+        weather {
+            true {
+                article {
+                    height: 35rem;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes animatetop {
+    from { top: -300px; opacity: 0 };
+    to { top: 0; opacity: 1; };
+}

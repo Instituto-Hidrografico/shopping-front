@@ -1,0 +1,112 @@
+@import './../../global.css';
+
+span {
+    position: relative;
+    display: inline-block;
+    padding: .2rem;
+    /* variants {
+        error {
+            true {
+                input:not(placeholder-shown) + label + span, input:focus + label + span, input:hover + label + span, select:not(placeholder-shown) + label + span, select:focus + label + span, select:hover + label + span {
+                    color: var(--color-sixth);
+                    background-image: linear-gradient(var(--color-ninth), var(--color-fifteenth));
+                }
+                input, select {
+                    color: var(--color-tenth);
+                    background: var(--color-fifteenth);
+                }
+                input:focus, input:active, input:hover, select:focus, select:active, select:hover {
+                    + label + label {
+                        height: 4rem;
+                        background: var(--color-fifteenth);
+                        display: inline-block;
+                        z-index: 1;
+                    }
+                }
+                input:hover + .validation, select:hover + .validation {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    } */
+}
+span span {
+    opacity: 0;
+    position: absolute;
+    padding: 0 .05rem;
+    border-radius: .3rem;
+    color: var(--color-fourth);
+    font-size: .75rem;
+    background-image: linear-gradient(var(--color-ninth), var(--color-sixth));
+    transform: translatey(-0.25rem) translatex(-120%);
+}
+span input:first-child, select:first-child {
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+span input:not(:last-of-type), select:not(:last-of-type) {
+    border-right: none;
+}
+span input:last-of-type, select:last-of-type {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+}
+span input, select {
+    outline: none;
+    height: 2.2rem;
+    width: 5rem;
+    padding: 0 1rem;
+    color: #354F52;
+    font-size: 15px;
+    border: 1px solid #354F52;
+    background-color: var(--color-sixth);
+}
+span label {
+    pointer-events: none;
+    user-select: none;
+    padding: .5em 1em;
+    border: none;
+    background-color: #354F52;
+    color: #fff;
+    font-size: 15px;
+    transition: background-color .3s ease-in-out;
+}
+span label:hover {
+    transform: translatey(-1.2rem);
+    background-color: #52796F;
+}
+span input:placeholder-shown + label + span, select:placeholder-shown + label + span {
+    opacity: 0;
+}
+/* span input:not(placeholder-shown) + label + span, input:focus + label + span, input:hover + label + span, select:not(placeholder-shown) + label + span, select:focus + label + span, select:hover + label + span { */
+    span input:not(placeholder-shown) + label + span, input:focus + label + span, input:hover > span, 
+    span select:not(placeholder-shown) > span, select:focus > span, select:hover > span {
+    transition: all .4s ease-in-out;
+    color: gray;
+    opacity: 1;
+}
+/* .inputgroup input + label, select + label {
+    font-size: .8rem;
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: .3rem;
+    padding: .25rem;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+} */
+/* ok */
+span input:disabled, select:disabled {
+    background-color: var(--color-eleventh);
+    cursor: not-allowed;
+}
+span input:disabled > span, select:disabled > span {
+    background-image: linear-gradient(var(--color-ninth), var(--color-eleventh));
+}
