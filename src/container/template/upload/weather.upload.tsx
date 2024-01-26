@@ -1,21 +1,12 @@
 import { useState, ChangeEvent, useTransition } from 'react';
 import { styled } from '@stitches/react';
-import { Button } from '../template/button/button';
-import { Weather } from '../../component/weather/weather.interface';
-import { initialWeather } from '../../component/weather/weather.initial';
-import { createAll, retrieve } from '../../service/service.crud';
+import { Button } from '../button/button';
+import { Weather } from '../../../component/weather/weather.interface';
+import { initialWeather } from '../../../component/weather/weather.initial';
+import { createAll, retrieve } from '../../../service/service.crud';
 // import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
 // import { ErrorMessage } from '../../assets/error/errorMessage';
-
-export const FindFile = styled('input', {
-    width: '30rem',
-    padding: '.45rem',
-    borderRadius: '.3rem',
-    color: '$tenth',
-    backgroundColor: '#6c757d',
-    cursor: 'pointer',
-    userSelect: 'none',
-});
+import './upload.css'
 
 export const WeatherUpload = () => {
     const [state, setState] = useState<Weather[]>([initialWeather])
@@ -60,7 +51,7 @@ export const WeatherUpload = () => {
     }
     return (
         <div>
-            <FindFile type="file" onChange={handleInputFile} ></FindFile>
+            <input className='find' type="file" onChange={handleInputFile} ></input>
             <Button disabled={ispending ? true : false} category="success" function={createAllItems} name='Upload'/>
             <Button disabled={true} hidden={ispending ? false : true} name='Carregando'/>
             {/* <Button disabled={true} hidden={executed()? false : true}>Executado</Button> */}
