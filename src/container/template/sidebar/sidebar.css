@@ -45,13 +45,53 @@ a {
 a img {
     height: 1.3rem;
 }
-a:hover {
+nav a:hover {
     color: var(--color-second);
     background-color: var(--color-ninth);
     box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset;
 }
-a:focus {
+nav a:focus {
     color: var(--color-first);
     background-color: var(--color-tenth);
     box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset,
+}
+.collapse {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: .3rem;
+}
+.collapse a:first-child, .collapse a:last-child {
+    margin: .06rem .06rem;
+}
+.collapse a {
+    margin: .03rem .06rem;
+}
+
+.collapsed {
+    background-color: var(--color-eleventh);
+}
+.collapsed a:first-child {
+    color: var(--color-second);
+    background-color: var(--color-ninth);
+    display: flex;
+    flex-direction: row;
+    /* box-shadow: none; */
+}
+.collapsed a {
+    color: var(--color-ninth);
+    background-color: var(--color-fourth);
+}
+.collapsed a svg:first-child {
+    transform: rotate(270deg);
+}
+
+.collapsible a:first-child {
+    display: flex;
+}
+.collapsible a {
+    display: none;
+}
+.collapsible a svg:first-child {
+    transform: rotate(90deg);
 }

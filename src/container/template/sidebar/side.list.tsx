@@ -16,6 +16,7 @@ export const SideList = () => {
   const [state, setState] = useState<string>('')
   const [states, setStates] = useState<[]>([])
   const [error, setError] = useState<ErrorMessage[]>([initialErrorMessage])
+  const showCollapsible = () => { setCollapsible(!collapsible) }
 
   const searchByCategory = async (url: string) => {
     await retrieve(url).then((data: any) => {
@@ -36,6 +37,12 @@ export const SideList = () => {
     <aside>
       <nav>
         <a key={0} href={`#/`} ><Icon name={'home'} /><p>{UriToScreenFormat('home')}</p></a>
+        <div className={collapsible ? 'collapse collapsible' : 'collapse collapsed'}>
+            <a key={1} onClick={showCollapsible} ><Icon name={'geo2'} /><p>{UriToScreenFormat('historic')}</p></a>
+            {collapse.map((element) => {
+              return <a key={element[1]} href={`#/${element[0]}`} ><Icon name={element[1]} /><p>{UriToScreenFormat(element[0])}</p></a>
+            })}
+        </div>
       </nav>
       <nav>
       {vector.map((element, index) => {
