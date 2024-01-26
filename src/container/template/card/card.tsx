@@ -1,6 +1,6 @@
 import { UriToScreenFormat } from '../../../assets/uri.format'
 import { Icon } from '../../../assets/svg.access'
-import { vector } from '../../category'
+import { vector } from '../../menu/category'
 import './card.css'
 
 export const Cards = () => {

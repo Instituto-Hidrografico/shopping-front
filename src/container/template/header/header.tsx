@@ -2,7 +2,7 @@ import { element } from 'prop-types'
 import { UriToScreenFormat } from '../../../assets/uri.format'
 import { getPayload } from '../../../service/service.token'
 import { Button } from '../button/button'
-import { vector } from '../../category'
+import { vector } from '../../menu/category'
 import './header.css'
 
 interface IHeader {

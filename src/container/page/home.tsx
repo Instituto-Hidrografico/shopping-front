@@ -1,9 +1,9 @@
 import { useState, useEffect, useTransition } from 'react'
 import { Icon } from '../../assets/svg.access';
 import { getPayload } from '../../service/service.token'
-import { vector } from '../menu';
+import { vector } from '../menu/menu';
 import { UriToScreenFormat } from '../../assets/uri.format'
-import { accessList } from '../access.list'
+import { accessList } from '../menu/access.list'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header';
 import { Cards } from '../template/card/card';

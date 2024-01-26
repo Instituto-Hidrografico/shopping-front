@@ -1,5 +1,5 @@
 import { vector } from "./menu"
-import { retrieve } from '../service/service.crud'
+import { retrieve } from '../../service/service.crud'
 
 export const accessList = () => {
     
