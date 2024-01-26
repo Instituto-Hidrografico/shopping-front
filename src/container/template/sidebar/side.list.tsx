@@ -33,6 +33,9 @@ export const SideList = () => {
     ["weatherOnShore", "geo-fill", "sixth"],
   ]
 
+  // useEffect(()=> {
+  //   startTransition(() => setList(accessList()))
+  // },[])
   return (
     <aside>
       <nav>
@@ -49,6 +52,7 @@ export const SideList = () => {
           return <a key={Math.random()} onMouseOver={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a>
       })}
       </nav>
+      {/* <a key={'logout'} href={`#/${'login'}`} onClick={logout}><Icon name={'geo-fill'} /><p>logout</p></a> */}
     </aside>
   )
 }
