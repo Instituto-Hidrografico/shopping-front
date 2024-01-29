@@ -15,7 +15,6 @@ import { initialPreparation } from "./component/preparation/preparation.initial"
 import { Login } from "./container/page/login/login";
 import { Home } from "./container/page/home";
 import { Profile } from "./container/page/profile";
-import { MilitariesList } from "./container/page/service/MilitariesList";
 import { initialCompositeUnit } from "./component/composite_unit/composite.unit.initial";
 import { initialCommission } from "./component/commission/commission.initial";
 import { initialCountry } from "./component/country/country.initial";
@@ -112,7 +111,6 @@ export default function AppRoutes() {
                                 <Route path="/weatherOffShore" element={<GenericForm key='weatherOffShore' object={initialWeatherOffShore} url={'weatherOffShore'} />}></Route>
                                 <Route path="/weatherOnShore" element={<GenericForm key='weatherOnShore' object={initialWeatherOnShore} url={'weatherOnShore'} />}></Route>
 
-                                <Route path="/military" element={<MilitariesList />}></Route>
                                 <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
                                 <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                                 <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
