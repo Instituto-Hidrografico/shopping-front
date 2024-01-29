@@ -3,7 +3,7 @@ import { getPayload, isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
-import { Container, ContainerInput2 } from './generic.field'
+import { Container } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 
@@ -11,7 +11,6 @@ import { Atribute } from '../../component/atribute/atribute.interface'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
-import { Modal } from '../template/modal'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
 // import { WeatherUpload } from './weather.upload'
@@ -28,6 +27,8 @@ import { ButtonPage } from '../template/button/button.page'
 import '../template/table/table.css'
 import '../template/load/load.css'
 import '../template/toast/toast.css'
+import '../template/inputgroup/inputgroup.css'
+import '../template/modal/modal.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -271,7 +272,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <Modal confirm={true} show={confirm.show} className='modal-confirm' onClick={(evt) => {
+                    <div hidden={confirm.show} className='modal' onClick={(evt) => {
                         onConfirmModal(evt)
                     }}>
                         <article>
@@ -281,8 +282,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                 <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
                             </footer>
                         </article>
-                    </Modal>
-                    <Modal show={modal} className='modal-div' onClick={(evt) => {
+                    </div>
+                    <div hidden={modal} className='modal' onClick={(evt) => {
                         onClickModal(evt)
                     }}>
                         <article>
@@ -295,7 +296,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
                                                 <div key={key} style={atribute[index]?.type === 'hidden' ? { display: 'none' } : { display: 'flex' }}>
-                                                    <ContainerInput2 key={key} error={validation(key).length !== 0 ? true : false}>
+                                                    <span className={'inputgroup tooltip'} key={key} data-tip={validation(key)}>
                                                         {Array.isArray(atribute[index]?.worth) || atribute[index]?.type === 'object' || atribute[index]?.type === 'undefined' ?
                                                             <select key={key} name={key} onChange={Array.isArray(value) ? handleInputChangeSubSelectArray : handleInputChangeSubSelect}
                                                                 // defaultValue={typeof value[0] === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value[0]) : value[0]}
@@ -304,14 +305,13 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                                 {subStates[index]?.map(((result: any) => <option key={Math.random()} value={result.id}>{result?.name ? result.name : result.id}</option>))}
                                                             </select>
                                                             :
-                                                            <input key={key} name={key} onChange={handleInputChange} autoComplete='off' placeholder={''} type={atribute[index]?.type}
+                                                            <input key={key} name={key} onChange={handleInputChange} autoComplete='off' placeholder={key} type={atribute[index]?.type}
                                                                 // defaultValue={typeof value === 'boolean' ? undefined : atribute[index]?.type === 'date' ? removeTimeFromDate(value) : value}
                                                                 defaultChecked={typeof value === 'boolean' ? value : undefined}
                                                                 value={typeof value === 'boolean' ? undefined : value === 0 ? '' : value} />
                                                         }
-                                                        <label className='label' htmlFor={key} hidden={atribute[index]?.type === 'hidden' || atribute[index]?.type === 'checkbox' ? true : false} >{key}</label>
-                                                        <label htmlFor={key}>{validation(key)}</label>
-                                                    </ContainerInput2>
+                                                        <label htmlFor={key}>{key}</label>
+                                                    </span>
                                                 </div>
                                             )
                                         })}
@@ -334,7 +334,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             </>
                             }
                         </article>
-                    </Modal>
+                    </div>
                     <Header title={object.url} function={newItem} />
                     {/* {ispending && <div className='load'></div>} */}
                     <table>
