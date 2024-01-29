@@ -45,6 +45,9 @@ a {
 a img {
     height: 1.3rem;
 }
+aside nav {
+    margin: .2rem;
+}
 nav a:hover {
     color: var(--color-second);
     background-color: var(--color-ninth);
