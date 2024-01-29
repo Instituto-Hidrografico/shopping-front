@@ -3,23 +3,16 @@ import { getPayload, isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
-import { Container } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
-
-// import { GroupButton } from '../template/button'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
-// import { WeatherUpload } from './weather.upload'
 import { UriToScreenFormat } from '../../assets/uri.format'
-// import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
-// import { Input } from './input/Input'
-// import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
@@ -29,6 +22,7 @@ import '../template/load/load.css'
 import '../template/toast/toast.css'
 import '../template/inputgroup/inputgroup.css'
 import '../template/modal/modal.css'
+import '../template/container/container.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -291,7 +285,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             {atribute &&
                                 <>
                                 <center>
-                                    <Container align={'inputs'}>
+                                    <div className={'.container'}>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
@@ -315,10 +309,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 </div>
                                             )
                                         })}
-                                    </Container>
-                                    <Container align={'response'}>
+                                    </div>
+                                    <div className={'.container'}>
                                         <div>{validationDTO()}</div>
-                                    </Container>
+                                    </div>
                                 </center>
                                 <footer>
                                     {/* {modal &&

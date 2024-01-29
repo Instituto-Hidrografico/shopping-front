@@ -3,7 +3,6 @@ import { getPayload, isValidToken } from '../../service/service.token'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
-import { Container } from './generic.field'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
 import { ButtonPage } from '../template/button/button.page'
@@ -27,6 +26,7 @@ import '../template/table/table.css'
 import '../template/load/load.css'
 import '../template/toast/toast.css'
 import '../template/inputgroup/inputgroup.css'
+import '../template/container/container.css'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -302,7 +302,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                     <button className={tab === 3 ? 'show' : 'inative'} onClick={() => changeTab(3)}>Seção 3</button>
                                     <button className={tab === 4 ? 'show' : 'inative'} onClick={() => changeTab(4)}>Seção 5</button>
                                 </div>
-                                <Container align={'line'} style={{ flex: '1', overflow: 'auto' }}>
+                                <div className='container'>
                                     <div className={tab === 0 ? 'tab' : 'hide'}>
                                         <span data-tip={validation('observer').length !== 0 ? true : false} >
                                             <select key={'observer'} name={'observer'} onChange={handleInputChangeSubSelect}
@@ -739,10 +739,10 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                         </span>
                                     </div>
 
-                                </Container>
-                                <Container align={'response'}>
+                                </div>
+                                <div className={'container'}>
                                     <div>{validationDTO()}</div>
-                                </Container>
+                                </div>
                             </center>
                             <footer>
                                 {/* {modal &&
