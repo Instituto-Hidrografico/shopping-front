@@ -4,7 +4,6 @@ import { initialUser } from '../../component/user/user.initial'
 import { ErrorMessage } from '../../assets/error/errorMessage'
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { changePassword, retrieve } from '../../service/service.crud'
-import { ContainerInput2 } from './generic.field'
 import { Button } from '../template/button/button'
 import { logout } from '../../service/service.crud'
 import { getPayload, getRoles } from '../../service/service.token'
@@ -69,15 +68,10 @@ export const Profile = () => {
         <>
             <Header title='profile' function={logoutUser}/>
             <div>
-                <div>
-                    <ContainerInput2 error={validation("password").length !== 0 ? true : false} >
-                        <span>
-                            <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
-                            <label htmlFor={"password"}>New Password</label>
-                            <label htmlFor={"password"}>{validation("password")}</label>
-                        </span>
-                    </ContainerInput2>
-                </div>
+                <span className='inputgroup tooltip' data-tip={validation("password")} >
+                    <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                    <label htmlFor={"password"}>New Password</label>
+                </span>
                 <Button category='primary' function={changePasswordItem} name='Change'/>
             </div>
             <div>{/\d/.test(state.password) ? 'OK, contém números' : 'não contém números'}</div>
