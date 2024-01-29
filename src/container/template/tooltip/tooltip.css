@@ -5,21 +5,6 @@
     box-sizing: border-box;
     transition: all .25s ease-in-out;
     z-index: 1;
-    /* variants: {
-        hidden: {
-            false: {
-                input: {
-                    backgroundColor: $fifteenth;
-                };
-                borderRadius: .25rem;
-            };
-            true: {
-                &:before; &:after: {
-                    display: none;
-                };
-            };
-        };
-    }; */
 }
 .tooltip:before {
     content: attr(data-tip);
