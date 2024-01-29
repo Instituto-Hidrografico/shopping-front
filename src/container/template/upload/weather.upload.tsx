@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, useTransition } from 'react';
-import { styled } from '@stitches/react';
 import { Button } from '../button/button';
 import { Weather } from '../../../component/weather/weather.interface';
 import { initialWeather } from '../../../component/weather/weather.initial';
