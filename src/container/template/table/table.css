@@ -8,11 +8,11 @@ table {
     font-size: 0.95rem;
     color: var(--color-sixteenth);
     padding: 0 var(--space-sm) 0 var(--space-sm);
-    margin: var(--space-xxs);
+    margin: var(--space-first);
     box-sizing: border-box;
     border-spacing: 0;
     background-color: var(--color-tenth);
-    border-radius: .3rem;
+    border-radius: var(--space-second);
     display: block;
     border-collapse: collapse;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
