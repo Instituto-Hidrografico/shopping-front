@@ -18,6 +18,10 @@
     padding-left: var(--space-md);
 }
 
+.header ul {
+    padding: 3rem;
+}
+
 @media only screen and (max-width: 500px){
     .header div {
         font-size: var(--space-75);
