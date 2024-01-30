@@ -258,9 +258,6 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             setConfirm({ ...confirm, show: false });
         }
     }
-    const abrir = () => {
-        console.log('sim')
-    }
     return (
         <>
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
