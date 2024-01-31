@@ -1,14 +1,13 @@
-@import './../../global.css';
+@import './global.css';
 
-span .title, span .title:disabled {
-    pointer-events: none;
-    user-select: none;
+.inputgroup {
+    padding: 0.25rem;
+}
+.inputgroup .title, .inputgroup:not(.inputgroup[data-tip='']) .title {
     background-color: var(--color-third);
     color: var(--color-tenth);
-    font-size: 15px;
-    transition: background-color .3s ease-in-out;
 }
-span label {
+.inputgroup label {
     position: absolute;
     padding: 0.05rem;
     border-radius: .3rem;
@@ -17,8 +16,8 @@ span label {
     background-image: linear-gradient(var(--color-ninth), var(--color-sixth));
     transform: translatey(-0.45rem) translatex(-120%);
 }
-span input,
-span select {
+.inputgroup input,
+.inputgroup select {
     outline: none;
     height: 2.2rem;
     width: 5rem;
@@ -28,47 +27,47 @@ span select {
     border: 1px solid var(--color-third);
     background-color: var(--color-sixth);
 }
-span input:first-child,
-span select:first-child {
+.inputgroup input:first-child,
+.inputgroup select:first-child {
     border-top-left-radius: .3rem;
     border-bottom-left-radius: .3rem;
 }
-span input:not(:last-of-type),
-span select:not(:last-of-type) {
+.inputgroup input:not(:last-of-type),
+.inputgroup select:not(:last-of-type) {
     border-right: none;
 }
-span input:last-of-type,
-span select:last-of-type {
+.inputgroup input:last-of-type,
+.inputgroup select:last-of-type {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
 }
-span input:placeholder-shown + label,
-span select:placeholder-shown + label {
+.inputgroup input:placeholder-shown + label,
+.inputgroup select:placeholder-shown + label {
     transition: all .4s ease-in-out;
     opacity: 0;
 }
-span input:focus + label, span input:hover + label, 
-span select:focus + label, span select:hover + label {
+.inputgroup input:focus + label, .inputgroup input:hover + label, 
+.inputgroup select:focus + label, .inputgroup select:hover + label {
     transition: all .4s ease-in-out;
     color: var(--color-twelfth);
     opacity: 1;
 }
-span input:disabled,
-span select:disabled {
+.inputgroup input:disabled,
+.inputgroup select:disabled {
     background-color: var(--color-eleventh);
     cursor: not-allowed;
 }
-span input:disabled + label,
-span select:disabled + label {
+.inputgroup input:disabled + label,
+.inputgroup select:disabled + label {
     background-image: linear-gradient(var(--color-ninth) 45%, var(--color-eleventh));
 }
-span:not(span[data-tip='']) input,
-span:not(span[data-tip='']) select {
+.inputgroup:not(.inputgroup[data-tip='']) input,
+.inputgroup:not(.inputgroup[data-tip='']) select {
     color: var(--color-tenth);
     background: var(--color-fifteenth);
 }
-span:not(span[data-tip='']) input + label,
-span:not(span[data-tip='']) select + label {
+.inputgroup:not(.inputgroup[data-tip='']) input + label,
+.inputgroup:not(.inputgroup[data-tip='']) select + label {
     color: var(--color-third);
     background-image: linear-gradient(var(--color-ninth) 45%, var(--color-fifteenth));
 }
