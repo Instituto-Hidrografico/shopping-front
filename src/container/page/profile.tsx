@@ -66,20 +66,23 @@ export const Profile = () => {
     }
     return (
         <>
-            <Header title='profile' function={logoutUser}/>
-            <div>
-                <span className='inputgroup tooltip' data-tip={validation("password")} >
-                    <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
-                    <label htmlFor={"password"}>New Password</label>
-                </span>
-                <Button category='primary' function={changePasswordItem} name='Change'/>
-            </div>
-            <div>{/\d/.test(state.password) ? 'OK, contém números' : 'não contém números'}</div>
-            <div>{/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(state.password) ? 'OK, contém caracteres especiais' : 'não contém caracteres especiais'}</div>
-            <div>{/[a-z]/.test(state.password) ? 'OK, contém letras minúsculas' : 'não contém letras minúsculas'}</div>
-            <div>{/[A-Z]/.test(state.password) ? 'OK, contém letras maiúsculas' : 'não contém letras maiúsculas'}</div>
-            <div>{state.password.length >= 10 ? 'OK, contém 10 caracteres' : 'não contém 10 caracteres'}</div>
-            
+            <Header title='perfil' function={logoutUser}/>
+            <header className='header'>
+                <div>
+                    <span className='inputgroup tooltip' data-tip={validation("password")} >
+                        <input type={'password'} required name={'password'} value={state.password} onChange={handleInputChange} autoComplete='off' />
+                        <label htmlFor={"password"}>senha</label>
+                    </span>
+                    <Button category='primary' function={changePasswordItem} name='Trocar'/>
+                </div>
+                <ul>
+                    <li><input type="checkbox" disabled checked={/\d/.test(state.password)} />{/\d/.test(state.password) ? 'OK, contém números' : 'não contém números'}</li>
+                    <li><input type="checkbox" disabled checked={/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(state.password)} />{/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(state.password) ? 'OK, contém caracteres especiais' : 'não contém caracteres especiais'}</li>
+                    <li><input type="checkbox" disabled checked={/[a-z]/.test(state.password)} />{/[a-z]/.test(state.password) ? 'OK, contém letras minúsculas' : 'não contém letras minúsculas'}</li>
+                    <li><input type="checkbox" disabled checked={/[A-Z]/.test(state.password)} />{/[A-Z]/.test(state.password) ? 'OK, contém letras maiúsculas' : 'não contém letras maiúsculas'}</li>
+                    <li><input type="checkbox" disabled checked={state.password.length >= 10} />{state.password.length >= 10 ? 'OK, contém 10 caracteres' : 'não contém 10 caracteres'}</li>
+                </ul>
+            </header>
         </>
     );
 }

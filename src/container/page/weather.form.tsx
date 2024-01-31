@@ -5,27 +5,24 @@ import { initialErrorMessage } from '../../assets/error/errorMessage.initial'
 import { create, update, remove, retrieve, removeComposite } from '../../service/service.crud'
 import { AtributeSet } from './generic.atribute'
 import { Atribute } from '../../component/atribute/atribute.interface'
-import { ButtonPage } from '../template/button/button.page'
 import { Pageable } from '../../component/pageable/pageable.interface'
 import { initialPageable } from '../../component/pageable/pageable.initial'
 import { ErrorBoundary } from 'react-error-boundary'
 import { createToast, toastDetails } from '../template/toast/toast.message'
 import { SubAtributeSet } from '../../component/atribute/subAtribute'
-// import { WeatherUpload } from './state.upload'
 import { UriToScreenFormat } from '../../assets/uri.format'
-// import { ShineButton } from './shine.button'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { PDFDocument } from '../../component/pdf/PDFDocument'
-// import { Input } from './input/Input'
-// import { InputInterface } from './input/assets/input.interface'
 import { Icon } from '../../assets/svg.access'
 import { WeatherUpload } from '../template/upload/weather.upload'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
+import { ButtonPage } from '../template/button/button.page'
 import '../template/table/table.css'
 import '../template/load/load.css'
 import '../template/toast/toast.css'
 import '../template/inputgroup/inputgroup.css'
+import '../template/modal/modal.css'
 import '../template/container/container.css'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
@@ -39,8 +36,8 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
     const [size, setSize] = useState<number>(5)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const [ispending, startTransition] = useTransition()
-    const [modal, setModal] = useState<boolean>(false)
-    const [confirm, setConfirm] = useState<{ message: '', show: boolean, action: string }>({ message: '', show: false, action: '' })
+    const [modal, setModal] = useState<boolean>(true)
+    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: true, action: ''})
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
     const [tab, setTab] = useState<number>(0)
@@ -278,7 +275,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <div hidden={confirm.show} className='modal-confirm' onClick={(evt) => {
+                    <div hidden={confirm.show} className='modal' onClick={(evt) => {
                         onConfirmModal(evt)
                     }}>
                         <article>
@@ -289,7 +286,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                             </footer>
                         </article>
                     </div>
-                    <div hidden={modal} className='modal-div' onClick={(evt) => {
+                    <div hidden={modal} className='modal' onClick={(evt) => {
                         onClickModal(evt)
                     }}>
                         <article>
@@ -764,7 +761,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                         <thead>
                             <tr>
                                 <th colSpan={9}>
-                                    <div className='header'>
+                                    <header>
                                         <div>
                                             <span>show</span>
                                             <select onChange={handleSize} >
@@ -777,7 +774,7 @@ export const WeatherForm = <T extends { id: string, name: string }>(object: any)
                                             <span>search {key}</span>
                                             <input name={search} onChange={searchItem} placeholder={`${key}`} value={search}></input>
                                         </div>
-                                    </div>
+                                    </header>
                                 </th>
                             </tr>
                             <tr>
