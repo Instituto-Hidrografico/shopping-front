@@ -1,7 +1,7 @@
 export const vector: string[][] = [
     ["user", "people-circle", "first"],
     ["role", "calendar3", "second"],
-    ["list", "calendar3", "second"],
+    // ["list", "calendar3", "second"],
     ["food", "toggles2", "third"],
     // ["food_category", "table", "fourth"],
     // ["military", "chat-quote-fill", "fifth"],
