@@ -18,6 +18,7 @@ import { Profile } from "./container/page/profile";
 import { initialCompositeUnit } from "./component/composite_unit/composite.unit.initial";
 import { initialCommission } from "./component/commission/commission.initial";
 import { initialCountry } from "./component/country/country.initial";
+import { initialCity } from "./component/city/city.initial";
 import { initialEquipment } from "./component/equipment/equipment.initial";
 import { initialHarbor } from "./component/harbor/harbor.initial";
 import { initialInstitution } from "./component/institution/institution.initial";
@@ -46,6 +47,7 @@ import { initialMaintainer } from "./component/maintainer/maintainer.initial";
 import { initialPerson } from "./component/person/person.initial";
 import { initialQuality } from "./component/quality/quality.initial";
 import { initialRadar } from "./component/radar/radar.initial";
+import { initialState } from "./component/state/state.initial";
 import { initialStructure } from "./component/structure/structure.initial";
 import { initialPrivilege } from "./component/privilege/privilege.initial";
 import { WeatherForm } from "./container/page/weather.form";
@@ -78,6 +80,7 @@ export default function AppRoutes() {
                                 <Route path="/list" element={<List />}></Route>
                                 <Route path="/address" element={<GenericForm key='address' object={initialAddress} url={'address'} />}></Route>
                                 <Route path="/blind" element={<GenericForm key='blind' object={initialBlind} url={'blind'} />}></Route>
+                                <Route path="/city" element={<GenericForm key='city' object={initialCity} url={'city'} />}></Route>
                                 <Route path="/commission" element={<GenericForm key='commission' object={initialCommission} url={'commission'} />}></Route>
                                 <Route path="/company" element={<GenericForm key='company' object={initialCompany} url={'company'} />}></Route>
                                 <Route path="/component" element={<GenericForm key='component' object={initialComponent} url={'component'} />}></Route>
@@ -101,6 +104,7 @@ export default function AppRoutes() {
                                 <Route path="/quality" element={<GenericForm key='quality' object={initialQuality} url={'quality'} />}></Route>
                                 <Route path="/radar" element={<GenericForm key='radar' object={initialRadar} url={'radar'} />}></Route>
                                 <Route path="/researcher" element={<GenericForm key='researcher' object={initialResearcher} url={'researcher'} />}></Route>
+                                <Route path="/state" element={<GenericForm key='state' object={initialState} url={'state'} />}></Route>
                                 <Route path="/station" element={<GenericForm key='station' object={initialStation} url={'station'} />}></Route>
                                 <Route path="/stationCategory" element={<GenericForm key='stationCategory' object={initialStationCategory} url={'stationCategory'} />}></Route>
                                 <Route path="/stationOffShore" element={<GenericForm key='stationOffShore' object={initialStationOffShore} url={'stationOffShore'} />}></Route>
