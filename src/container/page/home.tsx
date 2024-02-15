@@ -1,4 +1,4 @@
-import { useState, useEffect, useTransition } from 'react'
+import { useState } from 'react'
 import { Icon } from '../../assets/svg.access';
 import { getPayload } from '../../service/service.token'
 import { vector } from '../menu/menu';
@@ -10,7 +10,7 @@ import { Cards } from '../template/card/card';
 
 export const Home = () => {
     const [list, setList] = useState<boolean[]>(accessList())
-
+    
     return (
         <>
             <Header title='Home'/>
