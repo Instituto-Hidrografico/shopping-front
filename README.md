@@ -31,6 +31,7 @@ It is called shoppingal information, also known as shoppingal labeling, the tabl
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
 - [ ] counter only increases by 1
+- [ ] reorder by asc | desc on toogle
 
 ### in concept
 - [ ] sidebar: personal icons
