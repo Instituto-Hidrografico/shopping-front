@@ -76,12 +76,12 @@ main {
 }
 .all {
     align-items: stretch;
-    background-color: var(--color-ninth);
+    background-color: var(--color-eighth);
 }
 .main {
     flex-basis: 0;
     flex-grow: 1.5;
     flex-direction: column;
     color: var(--color-fifth);
-    background-color: var(--color-ninth);
+    background-color: var(--color-seventh);
 }
