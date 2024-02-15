@@ -29,7 +29,6 @@ table header div span:after {
 table thead {
     position: sticky;
     top: 0;
-    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16);
 }
 thead tr th {
     padding: 1rem;
