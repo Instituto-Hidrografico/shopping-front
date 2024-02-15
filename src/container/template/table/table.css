@@ -16,6 +16,8 @@ table {
     display: block;
     border-collapse: collapse;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-fourth);
 }
 table header {
     display: flex;
