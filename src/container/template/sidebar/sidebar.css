@@ -26,10 +26,13 @@ aside:hover {
     flex-direction: column;
     width: 256px;
 }
-aside a p, aside a span {
+aside a p {
     display: none;
 }
-aside:hover a p, aside:hover a span {
+aside a span span, aside a span ~ svg {
+    display: none;
+}
+aside:hover a p, aside:hover a span, aside:hover a span ~ svg {
     display: flex;
 }
 a {
@@ -73,6 +76,7 @@ nav a:focus {
 }
 .collapse a {
     margin: .03rem .06rem;
+    justify-content: space-between;
 }
 
 .collapsed {
@@ -83,13 +87,12 @@ nav a:focus {
     background-color: var(--color-ninth);
     display: flex;
     flex-direction: row;
-    /* box-shadow: none; */
 }
 .collapsed a {
     color: var(--color-ninth);
     background-color: var(--color-fourth);
 }
-.collapsed a svg:first-child {
+.collapsed a:first-child span + svg {
     transform: rotate(270deg);
 }
 
@@ -99,6 +102,6 @@ nav a:focus {
 .collapsible a {
     display: none;
 }
-.collapsible a svg:first-child {
+.collapsible a:first-child span + svg {
     transform: rotate(90deg);
 }

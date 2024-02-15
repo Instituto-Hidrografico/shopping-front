@@ -41,9 +41,9 @@ export const SideList = () => {
       <nav>
         <a key={0} href={`#/`} ><Icon name={'home'} /><p>{UriToScreenFormat('home')}</p></a>
         <div className={collapsible ? 'collapse collapsible' : 'collapse collapsed'}>
-            <a key={1} onClick={showCollapsible} ><Icon name={'geo2'} /><p>{UriToScreenFormat('historic')}</p></a>
+            <a key={1} onClick={showCollapsible} ><span><Icon name={'geo3'} /><span>{UriToScreenFormat('historic')}</span></span><Icon name={'geo2'} /></a>
             {collapse.map((element) => {
-              return <a key={element[1]} href={`#/${element[0]}`} ><Icon name={element[1]} /><p>{UriToScreenFormat(element[0])}</p></a>
+              return <a key={element[1]} href={`#/${element[0]}`} ><span><Icon name={element[1]} /><span>{UriToScreenFormat(element[0])}</span></span></a>
             })}
         </div>
       </nav>
