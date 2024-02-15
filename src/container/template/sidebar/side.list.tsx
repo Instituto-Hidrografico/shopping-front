@@ -11,7 +11,7 @@ import './sidebar.css'
 
 export const SideList = () => {
   // const [ispending, startTransition] = useTransition()
-  const [collapsible, setCollapsible] = useState(false)
+  const [collapsible, setCollapsible] = useState(true)
   const [show, setShow] = useState(true)
   const [state, setState] = useState<string>('')
   const [states, setStates] = useState<[]>([])
