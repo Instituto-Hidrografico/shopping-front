@@ -15,6 +15,10 @@ aside {
     overflow-y: auto;
     overflow-x: hidden;
     transition: width .2s;
+    background-image: url("https://cdn-defesaaereanaval.nuneshost.com/wp-content/uploads/2021/05/Marinha-do-brasil-Logo.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 aside:hover {
     display: flex;
