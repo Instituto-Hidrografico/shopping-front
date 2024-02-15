@@ -63,6 +63,7 @@ nav a:hover {
 nav a:focus {
     color: var(--color-first);
     background-color: var(--color-tenth);
+    background-image: linear-gradient(var(--color-eighth), var(--color-sixth));
     box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset,
 }
 .collapse {
@@ -84,7 +85,7 @@ nav a:focus {
 }
 .collapsed a:first-child {
     color: var(--color-second);
-    background-color: var(--color-ninth);
+    background-color: transparent;
     display: flex;
     flex-direction: row;
 }

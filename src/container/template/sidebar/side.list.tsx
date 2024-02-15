@@ -49,7 +49,7 @@ export const SideList = () => {
       </nav>
       <nav>
       {vector.map((element, index) => {
-          return <a key={Math.random()} onClick={()=>searchByCategory(vector[index][0])} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a>
+          return <a key={Math.random()} href={`#/${vector[index][0]}`}><Icon name={vector[index][1]} /><p>{UriToScreenFormat(vector[index][0])}</p></a>
       })}
       <a key={'logout'} href={`#/${'login'}`} onClick={logout}><Icon name={'geo-fill'} /><p>logout</p></a>
       </nav>
