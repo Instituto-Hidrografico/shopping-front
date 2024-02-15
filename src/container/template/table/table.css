@@ -30,6 +30,12 @@ table thead {
     position: sticky;
     top: 0;
 }
+table tfoot {
+    position: sticky;
+    bottom: 0;
+    height: 5rem;
+    background-color: var(--color-tenth);
+}
 thead tr th {
     padding: 1rem;
 }
