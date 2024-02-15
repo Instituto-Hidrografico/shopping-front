@@ -26,6 +26,9 @@ aside:hover {
     flex-direction: column;
     width: 256px;
 }
+aside a {
+    margin-bottom: .1em;
+}
 aside a p {
     display: none;
 }
@@ -41,6 +44,7 @@ a {
     align-items: center;
     text-decoration: none;
     color: var(--color-ninth);
+    background-image: transparent;
     height: 2.2rem;
     user-select: none;
     border-radius: .3rem;
@@ -58,12 +62,13 @@ aside nav {
 nav a:hover {
     color: var(--color-second);
     background-color: var(--color-ninth);
+    background-image: linear-gradient(to bottom, var(--color-seventh), var(--color-eleventh));
     box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset;
 }
 nav a:focus {
     color: var(--color-first);
     background-color: var(--color-tenth);
-    background-image: linear-gradient(var(--color-eighth), var(--color-sixth));
+    background-image: linear-gradient(var(--color-tenth), var(--color-eleventh));
     box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset,
 }
 .collapse {
@@ -72,11 +77,8 @@ nav a:focus {
     flex-direction: column;
     border-radius: .3rem;
 }
-.collapse a:first-child, .collapse a:last-child {
-    margin: .06rem .06rem;
-}
 .collapse a {
-    margin: .03rem .06rem;
+    margin: .06rem .06rem;
     justify-content: space-between;
 }
 
