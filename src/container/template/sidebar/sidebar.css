@@ -69,7 +69,12 @@ nav a:focus {
     color: var(--color-first);
     background-color: var(--color-tenth);
     background-image: linear-gradient(var(--color-tenth), var(--color-eleventh));
-    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset,
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.16), 0 .3rem .6rem rgba(0,0,0,0.23), 0 0 .25rem #AAA inset;
+    outline: .1rem solid var(--color-tenth);
+}
+nav a:active {
+    box-shadow: lightGray 0 3px 7px inset;
+    transform: translateY(.1rem);
 }
 .collapse {
     display: flex;
