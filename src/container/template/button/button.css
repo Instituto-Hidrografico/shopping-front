@@ -2,7 +2,7 @@
 
 button {
     justify-content: center;
-    width: var(--space-fourteenth);
+    width: var(--space-thirteenthandahalf);
     max-height: var(--space-twelfth);
     background-image: linear-gradient(var(--color-fourth), var(--color-second));
     border: 0;
@@ -12,7 +12,7 @@ button {
     color: var(--color-sixth);
     cursor: pointer;
     font-family: Montserrat,sans-serif;
-    font-size: var(--space-tenth);
+    font-size: var(--space-eighth);
     margin: var(--space-second);
     padding: 10px 1px;
     text-align: center;
