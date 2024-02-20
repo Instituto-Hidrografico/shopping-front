@@ -1,6 +1,9 @@
 @import './../../global.css';
 
 .modal {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     position: fixed;
     z-index: 1;
     left: 0;
@@ -38,7 +41,7 @@
 .modal article {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     min-height: 28rem;
     max-height: 90vh;
     min-width: 32rem;
@@ -53,6 +56,9 @@
 }
 .modal article center {
     height: 22rem;
+    width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 .modal article .show {
     background-color: var(--color-ninth);
