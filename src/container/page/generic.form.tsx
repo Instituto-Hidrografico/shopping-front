@@ -154,7 +154,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     // }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-        setState({ ...state, [event.target.name]: value })
+        if (new RegExp(event.target.pattern).test(event.target.value) || event.target.value === '') { 
+            setState({...state,[event.target.name]: value})
+        } 
     }
     const handleInputChangeSubSelect = async (event: ChangeEvent<HTMLSelectElement>) => {
         await retrieve(event.target.name, 0, size, 'id', event.target.value).then((data: any) => {
