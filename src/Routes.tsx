@@ -67,6 +67,7 @@ export default function AppRoutes() {
         <HashRouter>
             <AuthProvider>
                 <div className='routes all'>
+                    {isValidToken() && <SideList />}
                     <div className='routes main'>
                         <Routes>
                             <Route path="*" element={<Login />}></Route>
@@ -134,7 +135,6 @@ export default function AppRoutes() {
                             }></Route>
                         </Routes>
                     </div>
-                    {isValidToken() && <SideList />}
                 </div>
             </AuthProvider>
         </HashRouter>
