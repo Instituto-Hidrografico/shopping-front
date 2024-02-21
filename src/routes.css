@@ -77,7 +77,7 @@ main {
 .all {
     align-items: stretch;
     background-color: var(--color-eighth);
-    background-image: url("https://w.forfun.com/fetch/7e/7e8b9212c9fe3062f4f065f67a6e49c8.jpeg");
+    /* background-image: url("https://mcdn.wallpapersafari.com/medium/82/75/HAz1IU.jpg"); */
 }
 .main {
     flex-basis: 0;
