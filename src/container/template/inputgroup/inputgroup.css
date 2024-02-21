@@ -1,7 +1,7 @@
 @import './../../global.css';
 
 .inputgroup {
-    padding: 0.25rem;
+    padding: 1.5rem;
 }
 .inputgroup .title, .inputgroup:not(.inputgroup[data-tip='']) .title {
     background-color: var(--color-third);
