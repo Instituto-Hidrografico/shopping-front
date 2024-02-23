@@ -18,12 +18,9 @@ import { WeatherUpload } from '../template/upload/weather.upload'
 import { Button } from '../template/button/button'
 import { Header } from '../template/header/header'
 import { ButtonPage } from '../template/button/button.page'
-// import '../template/table/table.css'
 import '../template/load/load.css'
 import '../template/toast/toast.css'
 import '../template/inputgroup/inputgroup.css'
-// import '../template/modal/modal.css'
-// import '../template/container/container.css'
 
 export const WeatherForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
