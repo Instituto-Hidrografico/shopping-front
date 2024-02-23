@@ -22,7 +22,6 @@ import '../template/load/load.css'
 import '../template/toast/toast.css'
 import '../template/inputgroup/inputgroup.css'
 import '../template/modal/modal.css'
-import '../template/container/container.css'
 
 export const GenericForm = <T extends { id: string, name: string }>(object: any) => {
     const [state, setState] = useState<any>(object.object)
@@ -35,8 +34,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const [size, setSize] = useState<number>(5)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const [ispending, startTransition] = useTransition()
-    const [modal, setModal] = useState<boolean>(true)
-    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: true, action: ''})
+    const [modal, setModal] = useState<boolean>(false)
+    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: false, action: ''})
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
 
@@ -265,8 +264,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <div hidden={confirm.show} className='modal' onClick={(evt) => {
-                        onConfirmModal(evt)
+                    <dialog open={confirm.show} id='confirm' className='modal' onClick={(evt) => {
+                        document.getElementById("modal")?.showPopover()
                     }}>
                         <article>
                             <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriToScreenFormat('Confirm')}</h2></header>
@@ -275,9 +274,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                 <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
                             </footer>
                         </article>
-                    </div>
-                    <div hidden={modal} className='modal' onClick={(evt) => {
-                        onClickModal(evt)
+                    </dialog>
+                    <dialog open={modal} id='modal' className='modal' onClick={(evt) => {
+                        document.getElementById("modal")?.showPopover()
                     }}>
                         <article>
                             <header><span onClick={handleModal}>&times;</span><h2>{UriToScreenFormat(object.url)}</h2></header>
@@ -327,7 +326,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                             </>
                             }
                         </article>
-                    </div>
+                    </dialog>
                     <Header title={object.url} function={newItem} />
                     {/* {ispending && <div className='load'></div>} */}
                     <table>
