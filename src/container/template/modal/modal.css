@@ -2,64 +2,23 @@
 
 .modal {
     position: fixed;
-    z-index: 1;
-    padding-top: 5vh;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.4);
-    /* variants {
-        show {
-            false {
-                display: none;
-            }
-            true {
-                display: flex;
-            }
-        }
-        confirm {
-            true {
-                article {
-                    min-height: 10rem;
-                }
-            }
-        }
-        weather {
-            true {
-                article {
-                    height: 35rem;
-                    width: 100%;
-                }
-            }
-        }
-    } */
+    z-index: 1;
 }
 .modal article {
-    height: 90vh;
-    width: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 50vw;
     background-color: var(--color-ninth);
-    margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
-    animation-duration: 0.4s;
+    animation-duration: 0.25s;
     border-radius: var(--space-second);
-}
-.modal article .show {
-    background-color: var(--color-ninth);
-    border: none;
-    padding: 1rem;
-    margin: 0rem .5rem;
-    font-size: 1rem;
-    color: var(--color-first);
-    box-sizing: border-box;
-    z-index: 1;
-    width: 20vh;
-    transition: margin .25s ease-in-out;
-}
-.modal article .inative {
-    border: none;
-    margin: 0rem .1rem;
-    width: 20vh;
-    fill-opacity: 50%;
 }
 .modal article .tab {
     display: flex;
@@ -76,38 +35,38 @@
 .modal article .tabs button {
     border-radius: 1rem 1rem 0rem 0rem;
 }
-.modal article .hide {
-    display: none;
+.modal article header span {
+    padding: var(--space-seventh);
+    color: var(--color-tenth);
+    background-color: var(--color-fifth);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
 }
-.modal span {
+.modal article header span:hover, span:focus {
     color: var(--color-eleventh);
-    float: right;
-    /* font-size: $lg; */
-    font-weight: bold;
-}
-.modal span span:hover, span:focus {
-    color: black;
-    text-decoration: none;
     cursor: pointer;
 }
-.modal header {
-    color: var(--color-sixth);
+.modal header, .modal footer {
+    display: flex;
+    height: 7rem;
     width: 100%;
-    padding: 2px 16px;
-    margin: 0 auto;
+    padding: 0 var(--space-tenth) 0 var(--space-tenth);
+}
+.modal header {
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--color-sixth);
     background-color: var(--color-third);
-    border-radius: .3rem .3rem 0 0;
+    border-radius: var(--space-second) var(--space-second) 0 0;
 }
 .modal footer {
-    display: flex;
-    height: 5rem;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    border-radius: 0 0 .5rem .5rem;
+    border-radius: 0 0 var(--space-second) var(--space-second);
 }
 
 @keyframes animatetop {
-    from { top: -300px; opacity: 0 };
-    to { top: 0; opacity: 1; };
+    from { opacity: 0 };
+    to { opacity: 1; };
 }

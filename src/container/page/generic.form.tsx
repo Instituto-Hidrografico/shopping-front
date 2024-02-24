@@ -34,8 +34,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const [size, setSize] = useState<number>(5)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const [ispending, startTransition] = useTransition()
-    const [modal, setModal] = useState<boolean>(false)
-    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: false, action: ''})
+    const [modal, setModal] = useState<boolean>(true)
+    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: true, action: ''})
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
 
@@ -264,22 +264,18 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <dialog open={confirm.show} id='confirm' className='modal' onClick={(evt) => {
-                        document.getElementById("modal")?.showPopover()
-                    }}>
+                    <dialog open={confirm.show} id='confirm' className='modal'>
                         <article>
-                            <header><span onClick={() => handleConfirm('')}>&times;</span><h2>{UriToScreenFormat('Confirm')}</h2></header>
+                            <header><h2>{UriToScreenFormat('Confirm')}</h2><span onClick={() => handleConfirm('')}>&times;</span></header>
                             <footer>
                                 <Button category={'danger'} function={handleConfirmYes} name={UriToScreenFormat(confirm.action)}/>
                                 <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
                             </footer>
                         </article>
                     </dialog>
-                    <dialog open={modal} id='modal' className='modal' onClick={(evt) => {
-                        document.getElementById("modal")?.showPopover()
-                    }}>
+                    <dialog open={modal} id='modal' className='modal'>
                         <article>
-                            <header><span onClick={handleModal}>&times;</span><h2>{UriToScreenFormat(object.url)}</h2></header>
+                            <header><h2>{UriToScreenFormat(object.url)}</h2><span onClick={handleModal}>&times;</span></header>
                             {atribute &&
                                 <>
                                 <center>
