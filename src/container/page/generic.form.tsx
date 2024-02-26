@@ -258,7 +258,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                     <dialog className='um'>
                         <div>
                             <header><h2>{UriToScreenFormat(object.url)}</h2><span onClick={() => close('um')}>&times;</span></header>
-                            <center>
+                                <center>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
@@ -295,7 +295,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                         </div>
                     </dialog>
                     <dialog className='dois'>
-                        <header><h2>{UriToScreenFormat('Confirm')}</h2><span onClick={() => close('um')}>&times;</span></header>
+                        <header><h2>{UriToScreenFormat('Confirm')}</h2><span onClick={() => close('dois')}>&times;</span></header>
                         <footer>
                             <Button category={'danger'} function={handleConfirmYes} name={UriToScreenFormat(step)}/>
                             <Button category='secondary' function={()=>close('dois')} name='Reset' />
