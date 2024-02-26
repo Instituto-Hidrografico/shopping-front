@@ -1,41 +1,33 @@
 @import './../../global.css';
 
-.modal {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-    z-index: 1;
-}
-.modal article {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+dialog {
     height: 80vh;
-    width: 50vw;
+    width: 40vw;
+    padding: 0;
     background-color: var(--color-ninth);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
-    animation-duration: 0.25s;
+    animation-duration: .25s;
     border-radius: var(--space-second);
+    border: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-fourth);
 }
-.modal article .tab {
+dialog header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-tenth) 0 var(--space-tenth);
+    color: var(--color-sixth);
+    background-color: var(--color-third);
+    border-radius: var(--space-second) var(--space-second) 0 0;
+}
+dialog header span {
     display: flex;
     justify-content: center;
-    padding-top: 0.1vh;
-}
-.modal article .tabs {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    padding: 1rem 1rem 0 1rem;
-    margin: -5.8rem;
-}
-.modal article .tabs button {
-    border-radius: 1rem 1rem 0rem 0rem;
-}
-.modal article header span {
+    align-items: center;
+    font-size: var(--space-eleventh);
     padding: var(--space-seventh);
     color: var(--color-tenth);
     background-color: var(--color-fifth);
@@ -43,26 +35,28 @@
     height: 1rem;
     width: 1rem;
 }
-.modal article header span:hover, span:focus {
+dialog header span:hover {
     color: var(--color-eleventh);
     cursor: pointer;
 }
-.modal header, .modal footer {
+dialog center {
     display: flex;
-    height: 7rem;
-    width: 100%;
-    padding: 0 var(--space-tenth) 0 var(--space-tenth);
-}
-.modal header {
-    justify-content: space-between;
-    align-items: baseline;
-    color: var(--color-sixth);
-    background-color: var(--color-third);
-    border-radius: var(--space-second) var(--space-second) 0 0;
-}
-.modal footer {
     justify-content: center;
     align-items: center;
+}
+dialog div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+dialog footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-tenth);
     border-radius: 0 0 var(--space-second) var(--space-second);
 }
 

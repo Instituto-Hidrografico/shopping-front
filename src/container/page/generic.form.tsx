@@ -34,12 +34,10 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const [size, setSize] = useState<number>(5)
     const [pageable, setPageable] = useState<Pageable>(initialPageable)
     const [ispending, startTransition] = useTransition()
-    const [modal, setModal] = useState<boolean>(true)
-    const [confirm, setConfirm] = useState<{message: '', show: boolean, action: string}>({message: '', show: true, action: ''})
+    const [modal, setModal] = useState<boolean>(false)
+    const [step, setStep] = useState<string>('')
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
-
-    const width = object.width ?? 100;
 
     useEffect(() => {
         JSON.stringify({ ispending })
@@ -73,15 +71,14 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         loadSubStates()
         setComposite(data)
         setState(data)
-        handleModal()
+        open('um')
     }
     const validItem = (data: any) => {
         if (data?.hasOwnProperty('id') || data?.hasOwnProperty('ii') && data?.hasOwnProperty('iii') || data?.hasOwnProperty('ddddddd') || data?.hasOwnProperty('name') && data?.hasOwnProperty('number')) {
-            setConfirm({ ...confirm, show: !confirm.show })
+            close('dois')
             retrieveItem()
             createToast(toastDetails[0])
         } else {
-            handleConfirm('')
             startTransition(() => setError(data))
             createToast(toastDetails[1])
         }
@@ -173,16 +170,9 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const handleSize = (event: ChangeEvent<HTMLSelectElement>) => {
         setSize(Number(event.target.value))
     }
-    const handleModal = () => {
-        setModal(!modal)
-        setError([initialErrorMessage])
-    }
-    const handleConfirm = (action: string) => {
-        setConfirm({...confirm, show:!confirm.show, action: action})
-        handleModal()
-    }
     const handleConfirmYes = () => {
-        switch (confirm.action) {
+        console.log(step)
+        switch (step) {
             case 'create': createItem(); break
             case 'retrieve': retrieveItem(); break
             case 'update': updateItem(); break
@@ -249,37 +239,26 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         }
         return id
     }
-    const onClickModal = (evt: React.MouseEvent) => {
-        if ((evt.target as HTMLElement).className.includes('modal-div')) {
-            setModal(false);
-        }
+    const open = (name: string) => {
+        (document.querySelector('.' + name) as HTMLDialogElement).showModal()
     }
-    const onConfirmModal = (evt: React.MouseEvent) => {
-        if ((evt.target as HTMLElement).className.includes('modal-confirm')) {
-            setConfirm({ ...confirm, show: false });
-        }
+    const close = (name: string) => {
+        (document.querySelector('.' + name) as HTMLDialogElement).close()
+    }
+    const confirmation = (action: string) => {
+        close('um')
+        setStep(action)
+        open('dois')
     }
     return (
         <>
             {/* <ShineButton onMouseMove={shine} className='shiny'>Shine Button</ShineButton> */}
             {isValidToken() &&
                 <>
-                    <dialog open={confirm.show} id='confirm' className='modal'>
-                        <article>
-                            <header><h2>{UriToScreenFormat('Confirm')}</h2><span onClick={() => handleConfirm('')}>&times;</span></header>
-                            <footer>
-                                <Button category={'danger'} function={handleConfirmYes} name={UriToScreenFormat(confirm.action)}/>
-                                <Button category={'secondary'} function={() => handleConfirm('')} name='Reset'/>
-                            </footer>
-                        </article>
-                    </dialog>
-                    <dialog open={modal} id='modal' className='modal'>
-                        <article>
-                            <header><h2>{UriToScreenFormat(object.url)}</h2><span onClick={handleModal}>&times;</span></header>
-                            {atribute &&
-                                <>
-                                <center>
-                                    <div className={'.container'}>
+                    <dialog className='um'>
+                        <div>
+                            <header><h2>{UriToScreenFormat(object.url)}</h2><span onClick={() => close('um')}>&times;</span></header>
+                            <center>
                                         {Object.entries(state).map(([key, value]: any, index) => {
                                             return (
                                                 // <Input childToParent={handleInputChangeFather} key={Math.random()} type={atribute[index]?.type} name={key} value={value} readOnly={false} show={modal}></Input>
@@ -303,25 +282,24 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
                                                 </div>
                                             )
                                         })}
-                                    </div>
                                     <div className={'.container'}>
                                         <div>{validationDTO()}</div>
                                     </div>
                                 </center>
-                                <footer>
-                                    {/* {modal &&
-                                        <PDFDownloadLink document={<PDFDocument object={state} />} fileName="somename.pdf">
-                                            {({ loading }) => loading ? <Button disabled={true} category={'secondary'} >Wait</Button> : <Button category={'secondary'} >Download</Button>}
-                                        </PDFDownloadLink>}
-                                    <Button category={'primary'} onClick={resetItem} type='reset' >Reset</Button> */}
-                                    <Button category={'primary'} function={()=>handleConfirm('create')} hidden={compositeOrNot()} name='Create'/>
-                                    <Button category={'warning'} function={()=>handleConfirm('update')} hidden={!compositeOrNot()} name='Update'/>
-                                    <Button category={'danger'} function={()=>handleConfirm('delete')} hidden={!compositeOrNot()} name='Delete'/>
-                                    <Button category={'secondary'} function={handleModal} name='Close'/>
-                                </footer>
-                            </>
-                            }
-                        </article>
+                            <footer>
+                                <Button category={'primary'} function={()=>confirmation('create')} hidden={compositeOrNot()} name='Create'/>
+                                <Button category={'warning'} function={()=>confirmation('update')} hidden={!compositeOrNot()} name='Update'/>
+                                <Button category={'danger'} function={()=>confirmation('delete')} hidden={!compositeOrNot()} name='Delete'/>
+                                <Button category={'secondary'} function={()=>close('um')} name='Close'/>
+                            </footer>
+                        </div>
+                    </dialog>
+                    <dialog className='dois'>
+                        <header><h2>{UriToScreenFormat('Confirm')}</h2><span onClick={() => close('um')}>&times;</span></header>
+                        <footer>
+                            <Button category={'danger'} function={handleConfirmYes} name={UriToScreenFormat(step)}/>
+                            <Button category='secondary' function={()=>close('dois')} name='Reset' />
+                        </footer>
                     </dialog>
                     <Header title={object.url} function={newItem} />
                     {/* {ispending && <div className='load'></div>} */}
