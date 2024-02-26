@@ -9,8 +9,6 @@
 <!-- ![python](https://img.shields.io/badge/python-3.10.6-FFDC51 "Python") -->
 <!-- ![intellij](https://img.shields.io/badge/intellij-2022.2.1-000000 "Visual Studio Code") -->
 
-![Screenshot](https://github.com/Instituto-Hidrografico/shopping-front/blob/master/screenshot.png "Screenshot")
-
 # Necessary Tech stack:
 
 |   name            |file name version			|link for download
@@ -24,6 +22,8 @@
 
 # Description
 It is called shoppingal information, also known as shoppingal labeling, the table of information regarding the amounts of vitamins, mineral salts, fats, proteins, fibers, among others, per portion, contained in most product packaging.
+
+![Screenshot](https://github.com/Instituto-Hidrografico/shopping-front/blob/master/screenshot.png "Screenshot")
 
 ## Roadmap
 ### in development
