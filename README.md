@@ -9,7 +9,7 @@
 <!-- ![python](https://img.shields.io/badge/python-3.10.6-FFDC51 "Python") -->
 <!-- ![intellij](https://img.shields.io/badge/intellij-2022.2.1-000000 "Visual Studio Code") -->
 
-![Screenshot](https://github.com/Instituto-Hidrografico/shopping-front/blob/master/index.html "Screenshot")
+![Screenshot](https://github.com/Instituto-Hidrografico/shopping-front/blob/master/screenshot.png "Screenshot")
 
 # Necessary Tech stack:
 
