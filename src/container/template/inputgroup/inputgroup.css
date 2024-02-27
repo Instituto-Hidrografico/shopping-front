@@ -1,7 +1,7 @@
 @import './../../global.css';
 
 .inputgroup {
-    padding: 1.5rem;
+    padding: .3rem;
 }
 .inputgroup .title, .inputgroup:not(.inputgroup[data-tip='']) .title {
     background-color: var(--color-third);
@@ -14,7 +14,8 @@
     color: var(--color-fourth);
     font-size: .75rem;
     background-image: linear-gradient(var(--color-ninth), var(--color-sixth));
-    transform: translatey(-0.45rem) translatex(-120%);
+    transform: translatey(-.3rem);
+    margin-left: .3rem;
 }
 .inputgroup input,
 .inputgroup select {
