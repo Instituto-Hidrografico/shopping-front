@@ -183,6 +183,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setModal(!modal)
         resetItem()
         loadSubStates()
+        open('um')
     }
     const removeTimeFromDate = (date: any) => {
         let aux = new Date(date)
