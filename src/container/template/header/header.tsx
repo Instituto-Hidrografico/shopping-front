@@ -14,11 +14,13 @@ interface IHeader {
 export const Header = (header: IHeader) => {
     return (
         <header className='header'>
-            {vector.find((element)=> element.includes(header.title)) && <Button category={'primary'} function={header.function} name={'New'}/>}
-            <h1>{UriToScreenFormat(header.title)}</h1>
-            {!header.title.toLowerCase().includes('home') && !header.title.toLowerCase().includes('perfil') &&
-                <Button category={'primary'} function={header.function} name={'New'}/>
-            }
+            {/* {vector.find((element)=> element.includes(header.title)) && <Button category={'primary'} function={header.function} name={'New'}/>} */}
+            <div>
+                <h1>{UriToScreenFormat(header.title)}</h1>
+                {!header.title.toLowerCase().includes('home') && !header.title.toLowerCase().includes('perfil') &&
+                    <Button category={'primary'} function={header.function} name={'New'}/>
+                }
+            </div>
             <a href={`#/${'profile'}`}><Button category={'secondary'} name={getPayload().sub} /></a>
         </header>
     )
