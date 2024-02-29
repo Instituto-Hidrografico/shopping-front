@@ -56,9 +56,9 @@ import { SideList } from "./container/template/sidebar/side.list";
 import './routes.css'
 
 export const ROLES = {
-    'USER': "USER",
-    'ADMIN': "ADMIN",
-    'MODERATOR': "MODERATOR"
+    'USER': "7c12004d-e843-4e00-be40-01845ad75834",
+    'ADMIN': "8652ec73-0a53-433c-93be-420f1d90c681",
+    'MODERATOR': "52c57a80-4e3b-4a41-a864-58d0cea25b14"
 }
 
 export default function AppRoutes() {
