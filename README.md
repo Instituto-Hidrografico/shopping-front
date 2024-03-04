@@ -37,7 +37,6 @@ It is called shoppingal information, also known as shoppingal labeling, the tabl
 
 ### in concept
 - [ ] sidebar: personal icons
-- [ ] implements pure css
 - [ ] context menu
 - [ ] charts
 - [ ] schedule
