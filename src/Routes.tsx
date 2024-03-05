@@ -56,9 +56,13 @@ import { SideList } from "./container/template/sidebar/side.list";
 import './routes.css'
 
 export const ROLES = {
-    'USER': "7c12004d-e843-4e00-be40-01845ad75834",
-    'ADMIN': "8652ec73-0a53-433c-93be-420f1d90c681",
-    'MODERATOR': "52c57a80-4e3b-4a41-a864-58d0cea25b14"
+    'USER': '7c12004d-e843-4e00-be40-01845ad75834',
+    'MODERATOR': '52c57a80-4e3b-4a41-a864-58d0cea25b14',
+    'ADMIN': '8652ec73-0a53-433c-93be-420f1d90c681',
+    'REVIEWER': 'b8b37d04-628d-4939-b200-2a5e48909cd9',
+    'VERIFIER': '927c96c5-6884-433a-9479-836efbb1ed87',
+    'OPERATOR': '83366ed6-b0f2-4ef3-9658-e8bd9a8e3d39',
+    'VIEWER': '55c16ae7-b918-4b31-b920-deb4af049075',
 }
 
 export default function AppRoutes() {
@@ -73,6 +77,10 @@ export default function AppRoutes() {
                             <Route path="*" element={<Login />}></Route>
                             <Route path="/" element={<Login />}></Route>
                             <Route path="/notAllowed" element={<NotAllowed />}></Route>
+                            <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
+                            <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
+                            <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
+                            <Route path="/composite_unit" element={<GenericForm key='composite_unit' object={initialCompositeUnit} url={'composite_unit'} />}></Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                 <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
@@ -115,11 +123,6 @@ export default function AppRoutes() {
                                 <Route path="/weather" element={<WeatherForm key='weather' object={initialWeather} url={'weather'} />}></Route>
                                 <Route path="/weatherOffShore" element={<GenericForm key='weatherOffShore' object={initialWeatherOffShore} url={'weatherOffShore'} />}></Route>
                                 <Route path="/weatherOnShore" element={<GenericForm key='weatherOnShore' object={initialWeatherOnShore} url={'weatherOnShore'} />}></Route>
-
-                                <Route path="/food" element={<GenericForm key='food' object={initialFood} url={'food'} />}></Route>
-                                <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
-                                <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
-                                <Route path="/composite_unit" element={<GenericForm key='composite_unit' object={initialCompositeUnit} url={'composite_unit'} />}></Route>
                             </Route>
                             <Route path="/pdf" element={
                                     // <PDFViewer>
