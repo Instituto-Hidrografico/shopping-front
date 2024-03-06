@@ -1,7 +1,7 @@
 # _Shopping_
 
 ![gitlab](https://img.shields.io/gitlab/stars/gadelhati/shopping-front?style=social "Gitlab")
-![github](https://img.shields.io/github/stars/gadelhati/shopping-front?style=social "Github")
+![github](https://img.shields.io/github/stars/Instituto-Hidrografico/shopping-front "Github")
 ![typescript](https://img.shields.io/badge/typescript-4.7-0076c6 "Typescript")
 ![node](https://img.shields.io/badge/node-18.8.0-75AC64 "Node")
 ![vscode](https://img.shields.io/badge/vscode-1.70.2-1E97E8 "Visual Studio Code")
