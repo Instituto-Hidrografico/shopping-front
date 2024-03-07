@@ -38,6 +38,7 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
     const [step, setStep] = useState<string>('')
     const [key, setKey] = useState<string>('name')
     const [search, setSearch] = useState<string>('')
+    const [order, setOrder] = useState<string>('ASC')
 
     useEffect(() => {
         JSON.stringify({ ispending })
@@ -50,7 +51,8 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setPage(0)
     }, [key, search])
     const searchValue = async () => {
-        await retrieve(object.url, page, size, key, search).then((data: any) => {
+        toogleOrder()
+        await retrieve(object.url, page, size, key, search, order).then((data: any) => {
             startTransition(() => setPageable(data))
             startTransition(() => setStates(data.content))
         }).catch(() => { networkError() })
@@ -91,8 +93,12 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
             validItem(data)
         }).catch(() => { networkError() })
     }
+    const toogleOrder = () => {
+        if(order === 'ASC') setOrder('DESC')
+        if(order === 'DESC') setOrder('ASC')
+    }
     const retrieveItem = async () => {
-        await retrieve(object.url, page, size, key, search).then((data: any) => {
+        await retrieve(object.url, page, size, key, search, order).then((data: any) => {
             startTransition(() => setPageable(data))
             startTransition(() => setStates(data.content))
         }).catch(() => { networkError() })
