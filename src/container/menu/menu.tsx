@@ -3,6 +3,7 @@ export const vector: string[][] = [
     ["role", "calendar3", "second"],
     // ["list", "calendar3", "second"],
     ["food", "toggles2", "third"],
+    ["location", "table", "fourth"],
     // ["food_category", "table", "fourth"],
     // ["military", "chat-quote-fill", "fifth"],
     // ["composite_unit", "collection", "sixth"],

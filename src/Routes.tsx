@@ -53,6 +53,7 @@ import { initialPrivilege } from "./component/privilege/privilege.initial";
 import { WeatherForm } from "./container/page/weather.form";
 import { List } from "./container/page/list";
 import { SideList } from "./container/template/sidebar/side.list";
+import { LocationList } from "./container/page/location";
 import './routes.css'
 
 export const ROLES = {
@@ -81,6 +82,7 @@ export default function AppRoutes() {
                             <Route path="/preparation" element={<GenericForm key='preparation' object={initialPreparation} url={'preparation'} />}></Route>
                             <Route path="/food_category" element={<GenericForm key='food_category' object={initialFoodCategory} url={'food_category'} />}></Route>
                             <Route path="/composite_unit" element={<GenericForm key='composite_unit' object={initialCompositeUnit} url={'composite_unit'} />}></Route>
+                            <Route path="/location" element={<LocationList />}></Route>
                             <Route element={<RequireAuth allowedRoles={[ROLES.ADMIN]} />}>
                                 <Route path="/user" element={<GenericForm key='user' object={initialUser} url={'user'} />}></Route>
                                 <Route path="/role" element={<GenericForm key='role' object={initialRole} url={'role'} />}></Route>
