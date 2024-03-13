@@ -27,7 +27,6 @@ It is called shoppingal information, also known as shoppingal labeling, the tabl
 
 ## Roadmap
 ### in development
-- [x] reorder by asc | desc on toogle
 - [x] input group
 - [x] user: improve visual of add multiple roles
 - [x] extract all records in pdf

@@ -45,19 +45,19 @@ export const GenericForm = <T extends { id: string, name: string }>(object: any)
         setAtribute(AtributeSet(object.object))
         retrieveItem()
         loadSubStates()
-    }, [page, size])
+    }, [page, size, order])
     useEffect(() => {
         searchValue()
         setPage(0)
     }, [key, search])
     const searchValue = async () => {
-        toogleOrder()
         await retrieve(object.url, page, size, key, search, order).then((data: any) => {
             startTransition(() => setPageable(data))
             startTransition(() => setStates(data.content))
         }).catch(() => { networkError() })
     }
     const searchKey = (ikey: string) => {
+        toogleOrder()
         setKey(ikey)
     }
     const searchItem = async (event: ChangeEvent<HTMLInputElement>) => {
