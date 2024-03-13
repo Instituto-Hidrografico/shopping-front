@@ -27,11 +27,11 @@ It is called shoppingal information, also known as shoppingal labeling, the tabl
 
 ## Roadmap
 ### in development
-- [ ] reorder by asc | desc on toogle
-- [ ] extract all records in pdf
-- [ ] user: improve visual of add multiple roles
-- [ ] load privileges on role's form
+- [x] reorder by asc | desc on toogle
 - [x] input group
+- [x] user: improve visual of add multiple roles
+- [x] extract all records in pdf
+- [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
 - [ ] counter only increases by 1
 
@@ -151,6 +151,9 @@ surge
 # Developers
 
 > [Gadelha TI](https://github.com/gadelhati)
+> [Lucas](https://github.com/lucassmartins)
+> [Augusto](https://github.com/augustmat)
+> [Diego](https://github.com/diegoferreirapinto)
 
 # License
 
