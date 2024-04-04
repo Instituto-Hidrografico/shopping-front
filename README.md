@@ -28,13 +28,13 @@ It is called shoppingal information, also known as shoppingal labeling, the tabl
 ## Roadmap
 ### in development
 - [x] input group
-- [x] user: improve visual of add multiple roles
 - [x] extract all records in pdf
+- [x] user: improve visual of add multiple roles
+
+### in concept
 - [ ] load privileges on role's form
 - [ ] set combobox, turn with switch
 - [ ] counter only increases by 1
-
-### in concept
 - [ ] sidebar: personal icons
 - [ ] context menu
 - [ ] charts
